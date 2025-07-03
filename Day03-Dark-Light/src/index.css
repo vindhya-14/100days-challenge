@@ -1,0 +1,79 @@
+/* styles.css */
+
+/* ===== DEFAULT THEME VARIABLES ===== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --nav-bg: #f9f9f9;
+  --nav-link-color: #007bff;
+  --switch-bg: #dddddd;
+}
+
+/* ===== DARK THEME VARIABLES ===== */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --nav-bg: #1e1e1e;
+  --nav-link-color: #4ea8de;
+  --switch-bg: #444444;
+}
+
+/* ===== BASIC RESET ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* ===== NAVBAR STYLES ===== */
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== NAV LINKS ===== */
+.nav-items a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--nav-link-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-items a:hover {
+  color: var(--text-color);
+}
+
+/* ===== MODE SWITCH STYLES ===== */
+.mode-switch input[type="checkbox"] {
+  appearance: none;
+  width: 45px;
+  height: 22px;
+  background-color: var(--switch-bg);
+  border-radius: 30px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mode-switch input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.mode-switch input[type="checkbox"]:checked::before {
+  transform: translateX(22px);
+}
