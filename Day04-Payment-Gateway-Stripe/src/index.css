@@ -1,0 +1,53 @@
+/* index.css */
+
+/* Base setup */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Form container */
+form {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Stripe's PaymentElement will automatically insert its own fields */
+button {
+  background-color: #6772e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5469d4;
+}
+
+button:disabled {
+  background-color: #aab7c4;
+  cursor: not-allowed;
+}
+
+p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
