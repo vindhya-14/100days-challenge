@@ -1,12 +1,23 @@
-# React + Vite
+# 🧪 React Form Testing App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app built with Vite to demonstrate form handling, unit testing, and end-to-end testing.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- React functional form with state management
+- Input validation (all fields required)
+- Success message on submission
+- 🧪 Unit & integration tests using Vitest + React Testing Library
+- 🌐 Optional E2E testing using Cypress
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Tech Stack
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Vitest](https://vitest.dev/)
+- [React Testing Library](https://testing-library.com/)
+- [Jest DOM](https://github.com/testing-library/jest-dom)
