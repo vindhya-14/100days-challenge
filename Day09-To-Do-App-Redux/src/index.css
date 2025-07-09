@@ -1,0 +1,136 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body styling with gradient */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* App container */
+.app-container {
+  background-color: #ffffffef;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 550px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+/* Input and button group */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+input[type='text'] {
+  flex: 1;
+  min-width: 60%;
+  padding: 14px 18px;
+  border: 2px solid #764ba2;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input[type='text']:focus {
+  border-color: #5f27cd;
+  box-shadow: 0 0 8px #5f27cd88;
+}
+
+button {
+  min-width: 100px;
+  padding: 12px 20px;
+  background-color: #5f27cd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e0c99;
+}
+
+/* ToDo List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+li {
+  background-color: #f9f9f9;
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  animation: slideIn 0.4s ease;
+}
+
+li button {
+  background-color: #ff4d4d;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+li button:hover {
+  background-color: #d00000;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
