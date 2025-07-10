@@ -10,7 +10,7 @@ A full-stack weather application built using **Node.js**, **Express**, **Redis**
 - ⚡ Instant weather data retrieval via **Redis caching**
 - 🕒 Weather updates for popular cities every 10 minutes using **cron jobs**
 - 📦 Backend API using **Express**
-- 🧠 Smart cache keying using coordinates
+- 🧠 Smart cache keying using city
 - 🖼️ Beautiful frontend with live temperature, condition, and icons
 
 
