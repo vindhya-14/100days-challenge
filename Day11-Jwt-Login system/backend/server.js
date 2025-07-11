@@ -9,7 +9,7 @@ app.use(express.json())
 const SECRET_KEY = process.env.SECRET_KEY;
 const user = {
     id : 1,
-    username: 'vindhya',
+    username: 'sample',
     password: '1234'
 };
 app.post('/login',(req,res) => {
