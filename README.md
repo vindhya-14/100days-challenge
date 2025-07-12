@@ -13,7 +13,8 @@ Day 06 - Firebase Authentication - 06/07/25
 Day 07 - Task Manager - 07/07/25  
 Day 08 - Form Testing - 08/07/25  
 Day 09 - ToDo App with Redux - 09/07/25  
-Day 10 - Redis-weather-App - 10/07/25
+Day 10 - Redis-weather-App - 10/07/25  
+Day 11 - JWT-Login-System - 11/07/25
 
 
 
