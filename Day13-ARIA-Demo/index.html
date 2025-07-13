@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="main-heading">To-Do List</h1>
+  <div>
+    <input type="text" id="taskInput" aria-label="Enter new task" placeholder="Add a new task" />
+    <button onclick="addTask()" aria-label="Add task to list">Add</button>
+  </div>
+
+  <ul id="taskList" aria-labelledby="main-heading">
+   
+  </ul>
+
+  <p id="description">Click checkbox to mark task as done. Use delete to remove.</p>
+</body>
+<script src="script.js"></script>
+</html>
