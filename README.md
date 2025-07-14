@@ -16,7 +16,8 @@ Day 09 - ToDo App with Redux - 09/07/25
 Day 10 - Redis-weather-App - 10/07/25  
 Day 11 - JWT-Login-System - 11/07/25  
 Day 12 - Debounce-Throttle-Demo - 12/07/25  
-Day 13 - Aria- (Accessible Rich Internet Applications)- Demo - 13/07/25
+Day 13 - Aria- (Accessible Rich Internet Applications)- Demo - 13/07/25  
+Day 14 - Lazy-Load-Demo - 14/07/25
 
 
 
