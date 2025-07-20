@@ -21,7 +21,8 @@ Day 14 - Lazy-Load-Demo - 14/07/25
 Day 15 - Product-Review-Demo - 15/07/25  
 Day 16 - Product-search-api - 16/07/25  
 Day 17 - Bmi-calculator - 17/07/25  
-Day 18 - Infinite-scroll-Feature - 18/07/25
+Day 18 - Infinite-scroll-Feature - 18/07/25  
+Day 19 - Poll-Widget - 19/07/25
 
 
 
