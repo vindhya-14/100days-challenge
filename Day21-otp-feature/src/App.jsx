@@ -1,5 +1,5 @@
 import React from "react";
-import OtpInput from "./component/OtpInput";
+import OtpInput from "../../Day22-CountDown-Timer/frontend/src/component/OtpInput";
 
 
 function App() {
