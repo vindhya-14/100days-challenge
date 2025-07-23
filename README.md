@@ -25,7 +25,8 @@ Day 18 - Infinite-scroll-Feature - 18/07/25
 Day 19 - Poll-Widget - 19/07/25  
 Day 20 - Health Tracker - 20/07/25  
 Day 21 - Otp-Input-feature - 21/07/25  
-Day 22 - CountDownTmer - 22/07/25
+Day 22 - CountDownTmer - 22/07/25  
+Day 23 - Progress Bar - 23/07/25
 
 
 
