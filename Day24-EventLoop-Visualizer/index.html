@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Event Loop Visualizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Event Loop Visualizer</h1>
+    
+    <div class="code-section">
+      <h2>Code Editor</h2>
+      <textarea id="code" spellcheck="false">console.log('A');
+setTimeout(() => console.log('B'), 0);
+Promise.resolve().then(() => console.log('C'));
+console.log('D');</textarea>
+      
+      <div class="controls">
+        <button id="run" class="btn-run">
+          <i class="fas fa-play"></i> Run Code
+        </button>
+        <button id="clear" class="btn-clear">
+          <i class="fas fa-broom"></i> Clear
+        </button>
+        <button id="example1" class="btn-example">
+          <i class="fas fa-lightbulb"></i> Example 1
+        </button>
+        <button id="example2" class="btn-example">
+          <i class="fas fa-lightbulb"></i> Example 2
+        </button>
+        
+        <div class="speed-control">
+          <label for="speed">Animation Speed:</label>
+          <input type="range" id="speed" min="50" max="1000" value="500">
+          <span id="speed-value">1x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="visualizer">Visualizer</div>
+      <div class="tab" data-tab="explanation">Explanation</div>
+    </div>
+
+    <div class="tab-content active" id="visualizer-tab">
+      <div class="visualizer">
+        <div class="block">
+          <div class="block-header">
+            <h3 class="block-title">Call Stack</h3>
+            <span class="block-status" id="stack-status">Idle</span>
+          </div>
+          <ul class="block-list" id="stack"></ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <h3 class="block-title">Web APIs</h3>
+            <span class="block-status" id="webapis-status">Idle</span>
+          </div>
+          <ul class="block-list" id="webapis"></ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <h3 class="block-title">Microtask Queue</h3>
+            <span class="block-status" id="microtask-status">Empty</span>
+          </div>
+          <ul class="block-list" id="microtask"></ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <h3 class="block-title">Macrotask Queue</h3>
+            <span class="block-status" id="macrotask-status">Empty</span>
+          </div>
+          <ul class="block-list" id="macrotask"></ul>
+        </div>
+      </div>
+
+      <div class="event-loop-animation">
+        <div class="event-loop-path"></div>
+        <div class="event-loop-pointer"></div>
+      </div>
+
+      <div class="console-output" id="console">
+        <div class="console-line">Console output will appear here...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="explanation-tab">
+      <div class="explanation">
+        <h3>How the JavaScript Event Loop Works</h3>
+        <p>The event loop is JavaScript's mechanism for handling asynchronous operations. Here's how it works:</p>
+        
+        <h4>1. Call Stack</h4>
+        <p>JavaScript is single-threaded, meaning it has one call stack that executes functions one at a time.</p>
+        
+        <h4>2. Web APIs</h4>
+        <p>When async operations like setTimeout, fetch, or DOM events occur, they're handled by browser APIs outside the main thread.</p>
+        
+        <h4>3. Microtask Queue</h4>
+        <p>Promise callbacks (.then/.catch/.finally) and MutationObserver callbacks go here. These execute immediately after the current stack is empty, before any macrotasks.</p>
+        
+        <h4>4. Macrotask Queue</h4>
+        <p>setTimeout, setInterval, and DOM events go here. These execute after the current stack is empty AND the microtask queue is empty.</p>
+        
+        <h4>Event Loop Process</h4>
+        <ol>
+          <li>Execute all synchronous code (call stack)</li>
+          <li>Execute all microtasks (until queue is empty)</li>
+          <li>Execute one macrotask</li>
+          <li>Repeat</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #4361ee;"></div>
+        <span class="legend-text">Synchronous Code</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #4895ef;"></div>
+        <span class="legend-text">Web APIs</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #4cc9f0;"></div>
+        <span class="legend-text">Microtasks</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #f72585;"></div>
+        <span class="legend-text">Macrotasks</span>
+      </div>
+    </div>
+  </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
