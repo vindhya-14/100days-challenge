@@ -6,7 +6,7 @@ import StatsPanel from './components/StatsPanel';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const BASE_URL = 'https://task-manager-hc0x.onrender.com/api/tasks';
+const BASE_URL = 'https://task-manager-gwku.onrender.com/api/tasks';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
