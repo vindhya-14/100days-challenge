@@ -1,5 +1,8 @@
 # JavaScript Event Loop Visualizer
 
+## Output
+https://eventloop-visualizer.netlify.app/
+
 ## Overview
 
 The JavaScript Event Loop Visualizer is an interactive tool designed to help developers understand how JavaScript's event loop, call stack, and task queues work. It provides a visual representation of code execution, showing how synchronous code, microtasks (Promises), and macrotasks (setTimeout, setInterval) are processed.
