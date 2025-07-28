@@ -30,7 +30,8 @@ Day 23 - Progress Bar - 23/07/25
 Day 24 - EventLoop Visualizer - 24/07/25  
 Day 25 - Drawing App - 25/07/25  
 Day 26 - Expense-Tracker - 26/07/25  
-Day 27 - Custom-Hook-System - 27/07/25
+Day 27 - Custom-Hook-System - 27/07/25  
+Day 28 - Infinite-Scroll-System - 28/07/25
 
 
 
