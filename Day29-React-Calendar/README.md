@@ -1,12 +1,29 @@
-# React + Vite
+# 📅 Day View Calendar App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **Day View Calendar** built with **React**.  
+It displays hourly time slots and visualizes events with proper positioning and height based on their start and end times.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 24-hour time slot layout (0:00 to 23:00)
+- Dynamic event positioning using inline styles
+- Accurate visualization of event duration
+- Clean and modular component structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── DayView.jsx
+│   ├── DayTimeSlots.jsx
+│   └── Events.jsx
+│
+├── data/
+│   └── events.json
+```
