@@ -1,0 +1,39 @@
+.App {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #343a40;
+}
+
+.file-explorer {
+  margin-top: 20px;
+}
+
+.node {
+  margin-left: 20px;
+}
+
+.folder {
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  user-select: none;
+  margin-bottom: 5px;
+}
+
+.file {
+  margin-left: 20px;
+  color: #495057;
+  margin-bottom: 4px;
+}
+
+.children {
+  margin-left: 15px;
+  border-left: 2px dashed #ccc;
+  padding-left: 10px;
+  margin-top: 5px;
+}
