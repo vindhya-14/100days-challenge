@@ -10,6 +10,15 @@ function Task({ task, index }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          style={{
+            userSelect: "none",
+            padding: 16,
+            margin: "0 0 8px 0",
+            borderRadius: 4,
+            background: "#ffffff",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+            ...provided.draggableProps.style,
+          }}
         >
           {task.content}
         </div>
