@@ -1,12 +1,24 @@
-# React + Vite
+# 📁 React File Explorer with Upload
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive file explorer built using **React**, supporting:
 
-Currently, two official plugins are available:
+- Recursive folder/file structure  
+- Expand/Collapse folders  
+- File upload into folders (simulated in memory)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📂 Expand/Collapse folders  
+- 📄 Display files  
+- 📤 Upload new files into folders  
+- ♻️ Dynamic UI updates on upload  
+- 💅 Clean and minimal CSS styling
+
+---
+
+## 🔧 Tech Stack
+
+- React (with Hooks)
+- CSS
