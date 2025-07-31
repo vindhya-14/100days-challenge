@@ -10,6 +10,12 @@ function TaskList({ tasks }) {
           className="task-list"
           ref={provided.innerRef}
           {...provided.droppableProps}
+          style={{
+            background: "#e0f7fa",
+            padding: 16,
+            borderRadius: 8,
+            minHeight: 200,
+          }}
         >
           {tasks.map((task, index) => (
             <Task key={task.id} task={task} index={index} />
