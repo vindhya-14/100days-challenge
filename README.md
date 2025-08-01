@@ -33,7 +33,8 @@ Day 26 - Expense-Tracker - 26/07/25
 Day 27 - Custom-Hook-System - 27/07/25  
 Day 28 - Infinite-Scroll-System - 28/07/25  
 Day 29 - React Calendar - 29/07/25  
-Day 30 - React File Explorer - 30/07//25
+Day 30 - React File Explorer - 30/07//25  
+Day 31 - React Drag - Drop feature - 31/07/25
 
 
 
