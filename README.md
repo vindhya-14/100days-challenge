@@ -35,7 +35,8 @@ Day 28 - Infinite-Scroll-System - 28/07/25
 Day 29 - React Calendar - 29/07/25  
 Day 30 - React File Explorer - 30/07//25  
 Day 31 - React Drag - Drop feature - 31/07/25  
-Day 32 - React-Stepper-Component - 01/08/25
+Day 32 - React-Stepper-Component - 01/08/25  
+Day 33 - React-Toast-Component - 02/08/25
 
 
 
