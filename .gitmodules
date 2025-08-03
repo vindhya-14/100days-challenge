@@ -1,0 +1,3 @@
+[submodule "Day34-quote-Board/quoteboard"]
+	path = Day34-quote-Board/quoteboard
+	url = https://github.com/vindhya-14/QuoteBoard
