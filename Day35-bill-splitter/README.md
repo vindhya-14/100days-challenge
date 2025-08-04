@@ -1,12 +1,22 @@
-# React + Vite
+# 💸 Bill Splitter App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, animated bill splitting application built with React, Framer Motion, and Three.js that helps friends and family fairly divide expenses.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive 3D Background** with floating particles and starfield
+- **Animated UI** with smooth transitions between views
+- **Participant Management** - Add, edit, and remove participants
+- **Expense Tracking** - Record who paid for what
+- **Smart Calculations** - Automatically calculates who owes whom
+- **Visual Summary** - Clear breakdown of balances
+- **Sample Data** - Quick-start with demo data
+- **Responsive Design** - Works on all device sizes
 
-## Expanding the ESLint configuration
+## 🛠 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** - Frontend framework
+- **Framer Motion** - Animation library
+- **Three.js** + **React Three Fiber** - 3D visualizations
+- **Tailwind CSS** - Styling
+- **React Icons** - Beautiful icons
