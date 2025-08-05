@@ -38,7 +38,8 @@ Day 31 - React Drag - Drop feature - 31/07/25
 Day 32 - React-Stepper-Component - 01/08/25  
 Day 33 - React-Toast-Component - 02/08/25  
 Day 34 - QuoteBoard - 03/08/25  
-Day 35 - Bill Splitter - 04/08/25
+Day 35 - Bill Splitter - 04/08/25  
+Day 36 - Python-pdf-merger and splitter - 05/08/25
 
 
 
