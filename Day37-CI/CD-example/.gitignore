@@ -1,0 +1,30 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# IDE/Editor settings
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment variables / secrets
+.env
+
+# Logs
+*.log
+
+# Node-related (if you add JS build tools later)
+node_modules/
+
+# Netlify or build output
+dist/
+build/
