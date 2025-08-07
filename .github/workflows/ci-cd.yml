@@ -35,5 +35,19 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Netlify CLI
+      run: npm install -g netlify-cli
+
     - name: Deploy to Netlify
-      run: echo "Here you'd use Netlify CLI or GitHub integration for deployment"
+      run: netlify deploy --dir=Day37-CI-CD-demo --prod --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
