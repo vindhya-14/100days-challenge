@@ -40,7 +40,8 @@ Day 33 - React-Toast-Component - 02/08/25
 Day 34 - QuoteBoard - 03/08/25  
 Day 35 - Bill Splitter - 04/08/25  
 Day 36 - Python-pdf-merger and splitter - 05/08/25  
-Day 37 - Ci/cd demo - 06/08/25
+Day 37 - Ci/cd demo - 06/08/25  
+Day 38 - Aws Hosting using s3 & cloudfront - 07/08/25
 
 
 
