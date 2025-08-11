@@ -1,16 +1,21 @@
-# Run and deploy your AI Studio app
+# Book-to-Movie Tracker
 
-This contains everything you need to run your app locally.
+A web app that lets users search for books and discover their movie or TV adaptations.  
+It integrates data from [Open Library API](https://openlibrary.org/developers/api) for books and [TMDb API](https://developers.themoviedb.org/3) for movies and TV shows.
 
-View your app in AI Studio: https://ai.studio/apps/temp/1?showAssistant=true&showCode=true&showTreeView=true&showPreview=true
+## Features
 
-## Run Locally
+- Search for books by title or keywords
+- View book details including cover image and author
+- Find corresponding movie or TV adaptations with poster, release date, and ratings
+- Access detailed adaptation info including trailers, cast, and crew
+- Save favorites and watchlist (with localStorage persistence)
+- Responsive and interactive UI with smooth card flip animation
 
-**Prerequisites:**  Node.js
+## Tech Stack
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- React + TypeScript  
+- Vite for build tooling  
+- Tailwind CSS for styling  
+- Open Library API for book data  
+- TMDb API for movie/TV data  
