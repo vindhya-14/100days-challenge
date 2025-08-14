@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Daily Water Tracker - Stay Hydrated</title>
+    <meta name="description" content="Beautiful and intuitive daily water intake tracker. Monitor your hydration goals with smart features and stunning design.">
+    <meta name="keywords" content="water tracker, hydration, health, daily goals, wellness">
+    <meta name="author" content="Water Tracker App">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="💧 Daily Water Tracker">
+    <meta property="og:description" content="Track your daily water intake with style and achieve your hydration goals!">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Main Application Container -->
+    <div class="container" role="main">
+        <!-- Header Section -->
+        <header class="app-header">
+            <h1 id="main-title">💧 Daily Water Tracker</h1>
+            <p class="goal-text" id="goal-display">Daily Goal: 8 Glasses</p>
+        </header>
+        
+        <!-- Statistics Dashboard -->
+        <section class="stats-section" aria-label="Hydration Statistics">
+            <div class="stats-grid">
+                <div class="stat-card" role="status" aria-label="Glasses consumed today">
+                    <span class="stat-value" id="count" aria-live="polite">0</span>
+                    <div class="stat-label">Glasses Today</div>
+                </div>
+                <div class="stat-card" role="status" aria-label="Goal progress percentage">
+                    <span class="stat-value" id="percentage" aria-live="polite">0%</span>
+                    <div class="stat-label">Goal Progress</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Progress Visualization -->
+        <section class="progress-section" aria-label="Progress Visualization">
+            <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0">
+                <div id="progress-bar" aria-hidden="true"></div>
+            </div>
+            <p class="progress-text" id="progress-message" aria-live="polite">Start your hydration journey! 🌟</p>
+        </section>
+        
+        <!-- Water Drops Visual Indicator -->
+        <section class="visualization-section" aria-label="Visual Water Counter">
+            <div class="water-drops" id="water-drops" aria-hidden="true">
+                <div class="water-drop" title="Glass 1"></div>
+                <div class="water-drop" title="Glass 2"></div>
+                <div class="water-drop" title="Glass 3"></div>
+                <div class="water-drop" title="Glass 4"></div>
+                <div class="water-drop" title="Glass 5"></div>
+                <div class="water-drop" title="Glass 6"></div>
+                <div class="water-drop" title="Glass 7"></div>
+                <div class="water-drop" title="Glass 8"></div>
+            </div>
+        </section>
+        
+        <!-- Action Buttons -->
+        <section class="controls-section" aria-label="Water Tracking Controls">
+            <div class="buttons">
+                <button 
+                    id="add" 
+                    class="btn btn-primary" 
+                    aria-label="Add a glass of water"
+                    title="Add Glass (Keyboard: + or =)"
+                >
+                    <span class="btn-icon">+</span>
+                    <span class="btn-text">Add Glass</span>
+                </button>
+                
+                <button 
+                    id="remove" 
+                    class="btn btn-secondary" 
+                    aria-label="Remove a glass of water"
+                    title="Remove Glass (Keyboard: -)"
+                >
+                    <span class="btn-icon">−</span>
+                    <span class="btn-text">Remove Glass</span>
+                </button>
+                
+                <button 
+                    id="reset" 
+                    class="btn btn-tertiary" 
+                    aria-label="Reset water counter"
+                    title="Reset Counter (Keyboard: R)"
+                >
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">Reset</span>
+                </button>
+            </div>
+        </section>
+        
+        <!-- Status Messages -->
+        <section class="message-section" aria-label="Status Messages">
+            <div id="message" role="alert" aria-live="assertive" class="status-message"></div>
+        </section>
+        
+        <!-- Settings Panel (Hidden by default) -->
+        <section class="settings-section" id="settings-panel" style="display: none;" aria-label="Settings">
+            <div class="settings-content">
+                <h3>⚙️ Settings</h3>
+                
+                <div class="setting-item">
+                    <label for="goal-input">Daily Goal (glasses):</label>
+                    <input 
+                        type="number" 
+                        id="goal-input" 
+                        min="1" 
+                        max="20" 
+                        value="8"
+                        aria-describedby="goal-help"
+                    >
+                    <small id="goal-help">Recommended: 6-12 glasses per day</small>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select" aria-label="Choose app theme">
+                        <option value="auto">Auto (System)</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="notifications-toggle" aria-describedby="notifications-help">
+                        <span class="checkbox-custom"></span>
+                        Enable Notifications
+                    </label>
+                    <small id="notifications-help">Get reminded to stay hydrated</small>
+                </div>
+                
+                <div class="settings-buttons">
+                    <button id="save-settings" class="btn btn-primary">Save Settings</button>
+                    <button id="close-settings" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- History Panel (Hidden by default) -->
+        <section class="history-section" id="history-panel" style="display: none;" aria-label="Hydration History">
+            <div class="history-content">
+                <h3>📊 Your Hydration History</h3>
+                <div id="history-list" class="history-list">
+                    <!-- History items will be populated by JavaScript -->
+                </div>
+                <div class="history-buttons">
+                    <button id="export-data" class="btn btn-primary">Export Data</button>
+                    <button id="close-history" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Floating Action Buttons -->
+    <div class="fab-container" aria-label="Quick Actions">
+        <button 
+            id="settings-fab" 
+            class="fab" 
+            aria-label="Open settings"
+            title="Settings"
+        >
+            ⚙️
+        </button>
+        
+        <button 
+            id="history-fab" 
+            class="fab" 
+            aria-label="View history"
+            title="History"
+        >
+            📊
+        </button>
+        
+        <button 
+            id="info-fab" 
+            class="fab" 
+            aria-label="App information"
+            title="Info"
+        >
+            ℹ️
+        </button>
+    </div>
+    
+    <!-- Info Modal (Hidden by default) -->
+    <div id="info-modal" class="modal" role="dialog" aria-labelledby="info-title" aria-hidden="true" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="info-title">💧 About Water Tracker</h2>
+                <button class="modal-close" id="close-info" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Stay hydrated with this beautiful and intuitive water tracker!</p>
+                
+                <h4>✨ Features:</h4>
+                <ul>
+                    <li>🎯 Customizable daily goals</li>
+                    <li>📊 Progress tracking & history</li>
+                    <li>🎨 Beautiful animations & themes</li>
+                    <li>💾 Automatic data saving</li>
+                    <li>⌨️ Keyboard shortcuts</li>
+                    <li>📱 Mobile-friendly design</li>
+                </ul>
+                
+                <h4>⌨️ Keyboard Shortcuts:</h4>
+                <ul>
+                    <li><kbd>+</kbd> or <kbd>=</kbd> - Add glass</li>
+                    <li><kbd>-</kbd> - Remove glass</li>
+                    <li><kbd>R</kbd> - Reset counter</li>
+                </ul>
+                
+                <h4>💡 Hydration Tips:</h4>
+                <ul>
+                    <li>Start your day with a glass of water</li>
+                    <li>Set hourly reminders</li>
+                    <li>Add lemon for flavor and vitamin C</li>
+                    <li>Eat water-rich foods like fruits</li>
+                </ul>
+                
+                <div class="modal-footer">
+                    <small>Made with 💙 for your health</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Screen (Hidden after load) -->
+    <div id="loading-screen" class="loading-screen" aria-hidden="true">
+        <div class="loading-content">
+            <div class="loading-spinner">💧</div>
+            <p>Loading your hydration journey...</p>
+        </div>
+    </div>
+    
+    <!-- Keyboard Shortcuts Hint -->
+    <div id="shortcuts-hint" class="shortcuts-hint" style="display: none;">
+        <small>
+            💡 Tip: Use <kbd>+</kbd>/<kbd>-</kbd> keys for quick tracking, <kbd>R</kbd> to reset
+        </small>
+    </div>
+    
+    <!-- Service Worker Registration (Progressive Web App) -->
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('SW registered'))
+                    .catch(() => console.log('SW registration failed'));
+            });
+        }
+        
+        // Hide loading screen when page loads
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }
+        });
+        
+        // Show keyboard shortcuts hint on first visit
+        document.addEventListener('DOMContentLoaded', () => {
+            const hasSeenHint = localStorage.getItem('keyboardHintSeen');
+            if (!hasSeenHint) {
+                setTimeout(() => {
+                    const hint = document.getElementById('shortcuts-hint');
+                    if (hint) {
+                        hint.style.display = 'block';
+                        setTimeout(() => {
+                            hint.style.display = 'none';
+                        }, 5000);
+                    }
+                    localStorage.setItem('keyboardHintSeen', 'true');
+                }, 3000);
+            }
+        });
+    </script>
+    
+    <!-- Main Application Script -->
+    <script src="script.js"></script>
+    
+    <!-- Additional UI Enhancements Script -->
+    <script>
+        // Enhanced UI functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Floating Action Buttons
+            const settingsFab = document.getElementById('settings-fab');
+            const historyFab = document.getElementById('history-fab');
+            const infoFab = document.getElementById('info-fab');
+            
+            const settingsPanel = document.getElementById('settings-panel');
+            const historyPanel = document.getElementById('history-panel');
+            const infoModal = document.getElementById('info-modal');
+            
+            // Settings Panel
+            settingsFab?.addEventListener('click', () => {
+                settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
+                historyPanel.style.display = 'none';
+                infoModal.style.display = 'none';
+            });
+            
+            document.getElementById('close-settings')?.addEventListener('click', () => {
+                settingsPanel.style.display = 'none';
+            });
+            
+            // History Panel
+            historyFab?.addEventListener('click', () => {
+                historyPanel.style.display = historyPanel.style.display === 'none' ? 'block' : 'none';
+                settingsPanel.style.display = 'none';
+                infoModal.style.display = 'none';
+                
+                // Load history data
+                if (window.waterTracker) {
+                    loadHistoryData();
+                }
+            });
+            
+            document.getElementById('close-history')?.addEventListener('click', () => {
+                historyPanel.style.display = 'none';
+            });
+            
+            // Info Modal
+            infoFab?.addEventListener('click', () => {
+                infoModal.style.display = infoModal.style.display === 'none' ? 'flex' : 'none';
+                settingsPanel.style.display = 'none';
+                historyPanel.style.display = 'none';
+            });
+            
+            document.getElementById('close-info')?.addEventListener('click', () => {
+                infoModal.style.display = 'none';
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === infoModal) {
+                    infoModal.style.display = 'none';
+                }
+            });
+            
+            // Settings functionality
+            const goalInput = document.getElementById('goal-input');
+            const themeSelect = document.getElementById('theme-select');
+            const notificationsToggle = document.getElementById('notifications-toggle');
+            const saveSettingsBtn = document.getElementById('save-settings');
+            
+            saveSettingsBtn?.addEventListener('click', () => {
+                if (window.waterTracker) {
+                    // Update goal
+                    const newGoal = parseInt(goalInput.value) || 8;
+                    window.waterTracker.goal = Math.max(1, Math.min(20, newGoal));
+                    document.getElementById('goal-display').textContent = `Daily Goal: ${window.waterTracker.goal} Glasses`;
+                    
+                    // Update theme
+                    const theme = themeSelect.value;
+                    window.waterTracker.applyTheme(theme);
+                    
+                    // Update notifications
+                    window.waterTracker.notificationsEnabled = notificationsToggle.checked;
+                    
+                    // Save settings and update display
+                    window.waterTracker.saveSettings();
+                    window.waterTracker.updateDisplay();
+                    
+                    // Close settings panel
+                    settingsPanel.style.display = 'none';
+                    
+                    // Show confirmation
+                    window.waterTracker.showMessage('Settings saved successfully! ✅', 'success');
+                }
+            });
+            
+            // Load history data function
+            function loadHistoryData() {
+                if (!window.waterTracker) return;
+                
+                const historyList = document.getElementById('history-list');
+                const history = window.waterTracker.getHistory();
+                
+                if (history.length === 0) {
+                    historyList.innerHTML = '<p class="no-data">No history data yet. Start tracking to see your progress!</p>';
+                    return;
+                }
+                
+                historyList.innerHTML = history.slice(-7).reverse().map(day => `
+                    <div class="history-item ${day.completed ? 'completed' : ''}">
+                        <div class="history-date">${new Date(day.date).toLocaleDateString()}</div>
+                        <div class="history-progress">
+                            <div class="history-bar">
+                                <div class="history-fill" style="width: ${Math.min(day.percentage, 100)}%"></div>
+                            </div>
+                            <span class="history-text">${day.count}/${day.goal} (${day.percentage}%)</span>
+                        </div>
+                        <div class="history-status">
+                            ${day.completed ? '🏆' : '📊'}
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Export data functionality
+            document.getElementById('export-data')?.addEventListener('click', () => {
+                if (window.waterTracker) {
+                    window.waterTracker.exportData();
+                }
+            });
+            
+            // Add some visual feedback for FAB buttons
+            document.querySelectorAll('.fab').forEach(fab => {
+                fab.addEventListener('mousedown', () => {
+                    fab.style.transform = 'scale(0.9)';
+                });
+                
+                fab.addEventListener('mouseup', () => {
+                    fab.style.transform = 'scale(1)';
+                });
+                
+                fab.addEventListener('mouseleave', () => {
+                    fab.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+    
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Daily Water Tracker",
+        "description": "Track your daily water intake and achieve your hydration goals",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Daily water intake tracking",
+            "Progress visualization",
+            "Goal customization",
+            "History tracking",
+            "Offline functionality"
+        ]
+    }
+    </script>
+</body>
+</html>
