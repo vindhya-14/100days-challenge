@@ -48,7 +48,8 @@ Day 41 - Match-Tiles - 10/08/25
 Day 42 - BookToMovie - 11/08/25  
 Day 43 - Password-strength-checker - 12/08/25  
 Day 44 - Github-Repo-Explorer - 13/08/25  
-Day 45 - Water - tracker - localstorage - 14/08/25
+Day 45 - Water - tracker - localstorage - 14/08/25  
+Day 46 - Whatsapp Automation - 15/08/25
 
 
 
