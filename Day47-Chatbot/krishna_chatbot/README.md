@@ -2,6 +2,8 @@
 
 A spiritual guidance chatbot inspired by the wisdom of the Bhagavad Gita, providing timeless advice for modern challenges.
 
+## Check It out
+https://krishnas-chatbot.onrender.com/
 
 ## Features ✨
 
