@@ -50,7 +50,8 @@ Day 43 - Password-strength-checker - 12/08/25
 Day 44 - Github-Repo-Explorer - 13/08/25  
 Day 45 - Water - tracker - localstorage - 14/08/25  
 Day 46 - Whatsapp Automation - 15/08/25  
-Day 47 - Chatbot - GeetAI - 16/08/25
+Day 47 - Chatbot - GeetAI - 16/08/25  
+Day 48 - Secure Notes app - 17/08/25
 
 
 
