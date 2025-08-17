@@ -1,12 +1,22 @@
-# React + Vite
+# 🔒 Secure Notes Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A privacy-focused note-taking app with client-side encryption that keeps your notes secure even if your data is compromised.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **End-to-end encryption** - Notes are encrypted before saving to localStorage
+- **Password protection** - Lock sensitive notes with a password
+- **Priority levels** - Mark notes as High/Medium/Low priority
+- **Categories** - Organize notes by Work, Personal, Ideas, etc.
+- **Secure sharing** - Encrypted notes can be safely shared (future feature)
+- **Zero-knowledge architecture** - We never see your unencrypted data
+- **Responsive design** - Works on desktop and mobile devices
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- React.js (v18+)
+- Tailwind CSS
+- Crypto-js for encryption
+- React Icons
+- LocalStorage for data persistence
