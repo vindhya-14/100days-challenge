@@ -1,0 +1,27 @@
+.popover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.popover-btn {
+  padding: 8px 14px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.popover-content {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  min-width: 160px;
+  z-index: 100;
+}
