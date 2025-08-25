@@ -54,6 +54,17 @@ Day 47 - Chatbot - GeetAI - 16/08/25
 Day 48 - Secure Notes app - 17/08/25  
 Day 49 - Notepad-using-nodejs - 18/08/25  
 Day 50 - Web-Crawler - 19/08/25
+Day51-Otp-Generator - 20/08/25  
+Day52-Port-Scanner - 21/08/25  
+Day53-autocomplete-search - 22/08/25  
+Day54-PopOver-Component - 23/08/25  
+Day55-Tiny-Js-Interpreter - 24/08/25
+
+
+
+
+
+
 
 
 
