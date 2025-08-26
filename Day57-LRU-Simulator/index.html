@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LRU Cache Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>⚡ CPU Cache Simulator (LRU Policy)</h1>
+
+        <div class="input-panel">
+            <label>Memory Access Sequence:</label>
+            <input id="sequence" type="text" value="1 2 3 1 4 5 1 2" />
+            <label>Cache Size:</label>
+            <input id="cacheSize" type="number" value="3" min="1" max="10" />
+            <button id="startBtn">▶ Run</button>
+        </div>
+
+        <div class="panels">
+            <div class="memory">
+                <h2>Main Memory</h2>
+                <div id="memory"></div>
+            </div>
+
+            <div class="cache">
+                <h2>Cache (LRU)</h2>
+                <div id="cache"></div>
+            </div>
+        </div>
+
+        <div id="log" class="log"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
