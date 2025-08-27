@@ -60,7 +60,8 @@ Day53-autocomplete-search - 22/08/25
 Day54-PopOver-Component - 23/08/25  
 Day55-Tiny-Js-Interpreter - 24/08/25  
 Day56-js-memory-visualizer - 25/08/25  
-Day57-LRU-Simulator - 26/08/25
+Day57-LRU-Simulator - 26/08/25  
+Day58-tcp-handshake-visualizer - 27/08/25
 
 
 
