@@ -1,12 +1,17 @@
-# React + Vite
+# Disk Scheduling Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based simulator built with **React + Vite + TailwindCSS** that demonstrates various disk scheduling algorithms like **FCFS, SSTF, SCAN, C-SCAN, LOOK, and C-LOOK**.  
+This tool helps visualize head movements, total seek time, and disk access order.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+- Implemented algorithms: **FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK**
+- Interactive input for:
+  - Disk size
+  - Initial head position
+  - Request sequence
+- Visual graph of head movements using TailwindCSS & SVG
+- Displays total head movement and request order
+- Fast and lightweight with **Vite**
+- Modern UI styled with **TailwindCSS**
