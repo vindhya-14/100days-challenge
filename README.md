@@ -62,6 +62,10 @@ Day55-Tiny-Js-Interpreter - 24/08/25
 Day56-js-memory-visualizer - 25/08/25  
 Day57-LRU-Simulator - 26/08/25  
 Day58-tcp-handshake-visualizer - 27/08/25
+Day59-Dns-Lookup-Visualizer - 28/08/25  
+Day60-disk-simulator - 29/08/25  
+Day61-Deadlock simulator - 30/08/25
+
 
 
 
