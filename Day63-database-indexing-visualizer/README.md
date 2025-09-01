@@ -1,12 +1,14 @@
-# React + Vite
+# 📊 Database Indexing Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **React + Vite + TailwindCSS** app to **visualize database indexing concepts**.  
+Currently supports a **simplified B-Tree style index**. You can insert keys, change page size, and reset to see how nodes split.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+- 🎯 Visualize a B-Tree-like index structure  
+- ➕ Insert new keys dynamically  
+- 🔄 Reset index to empty  
+- ⚙️ Adjust page size (`max keys per node`)  
+- 🖱️ Click rows from sidebar to insert their key  
+- ✨ Clean Tailwind styling + Framer Motion animations  
