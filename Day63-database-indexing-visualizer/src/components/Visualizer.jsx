@@ -97,7 +97,7 @@ function Connection({ fromX, fromY, toX, toY, isHighlighted }) {
   );
 }
 
-export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
+export default function Visualizer({ tree, pages }) {
   const [selectedNode, setSelectedNode] = useState(null);
   const [highlightedValue, setHighlightedValue] = useState(null);
   const [traversalPath, setTraversalPath] = useState([]);
@@ -105,6 +105,26 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [nodePositions, setNodePositions] = useState({});
+  const [containerSize, setContainerSize] = useState({
+    width: 800,
+    height: 500,
+  });
+
+  // Responsive container sizing
+  useEffect(() => {
+    const updateSize = () => {
+      const container = document.getElementById("visualizer-container");
+      if (container) {
+        const width = Math.min(container.clientWidth, 1200);
+        const height = Math.min(window.innerHeight * 0.6, 600);
+        setContainerSize({ width, height });
+      }
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   // Calculate positions for all nodes
   const calculateLayout = () => {
@@ -112,7 +132,8 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
 
     const nodes = [];
     const connections = [];
-    const levelHeight = 120;
+    const { width, height } = containerSize;
+    const levelHeight = height / 4;
 
     // Add root node
     const rootX = width / 2 - 80;
@@ -125,7 +146,7 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
       level: 0,
     });
 
-    // Add leaf nodes
+    // Add leaf nodes - responsive spacing based on container width
     const leafSpacing = Math.min(
       180,
       (width - 100) / Math.max(1, pages.length)
@@ -134,7 +155,7 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
 
     pages.forEach((leaf, i) => {
       const x = leafStartX + i * leafSpacing;
-      const y = 40 + levelHeight * 2;
+      const y = rootY + levelHeight * 2;
 
       nodes.push({
         id: `leaf-${i}`,
@@ -151,7 +172,7 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
           to: `leaf-${i}`,
           fromX: width / 2,
           fromY: rootY + 60,
-          toX: x,
+          toX: x + 80,
           toY: y - 30,
         });
       }
@@ -169,7 +190,7 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
       positions[node.id] = { x: node.x + 80, y: node.y + 30 };
     });
     setNodePositions(positions);
-  }, [tree, pages, width]);
+  }, [tree, pages, containerSize]);
 
   // Simulate search traversal
   const simulateSearch = (value) => {
@@ -230,29 +251,39 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg">
-      <div className="flex gap-4 mb-6 w-full max-w-2xl">
+    <div className="flex flex-col items-center p-4 md:p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg w-full">
+      <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4 text-center">
+        B+ Tree Index Visualizer
+      </h2>
+
+      <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-4 md:mb-6 w-full max-w-2xl">
         <input
           type="number"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           placeholder="Enter a value to search"
-          className="flex-1 px-4 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-4 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
         />
         <button
           onClick={handleSearch}
           disabled={isPlaying}
-          className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 md:px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm md:text-base"
         >
           {isPlaying ? "Searching..." : "Search"}
         </button>
       </div>
 
-      <div className="relative w-full overflow-hidden rounded-xl border border-slate-200 bg-white">
+      <div
+        id="visualizer-container"
+        className="relative w-full overflow-hidden rounded-xl border border-slate-200 bg-white"
+        style={{ height: `${containerSize.height}px` }}
+      >
         <svg
-          width={width}
-          height={height}
+          width={containerSize.width}
+          height={containerSize.height}
           className="bg-gradient-to-br from-white to-slate-50"
+          viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
+          preserveAspectRatio="xMidYMid meet"
         >
           {/* Draw connections first so they appear behind nodes */}
           <AnimatePresence>
@@ -297,31 +328,35 @@ export default function Visualizer({ tree, pages, width = 800, height = 500 }) {
           </AnimatePresence>
         </svg>
 
-        {/* Info panel */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-md border border-slate-200 max-w-xs">
-          <h3 className="font-semibold text-slate-700 mb-2">B+ Tree Info</h3>
-          <p className="text-sm text-slate-600">
-            {tree && `Root has ${tree.keys.length} keys`}
+        {/* Info panel - responsive positioning */}
+        <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-white/90 backdrop-blur-sm p-3 md:p-4 rounded-lg shadow-md border border-slate-200 max-w-[160px] md:max-w-xs">
+          <h3 className="font-semibold text-slate-700 mb-1 md:mb-2 text-sm md:text-base">
+            B+ Tree Info
+          </h3>
+          <p className="text-xs md:text-sm text-slate-600">
+            {tree && `Root: ${tree.keys.length} keys`}
             <br />
-            {pages && `${pages.length} leaf pages`}
+            {pages && `Leaves: ${pages.length}`}
             <br />
             {pages &&
-              `Total ${pages.reduce(
+              `Records: ${pages.reduce(
                 (acc, page) => acc + page.keys.length,
                 0
-              )} data records`}
+              )}`}
           </p>
           {highlightedValue && (
-            <p className="text-sm mt-2">
-              <span className="font-medium">Searching for:</span>{" "}
-              {highlightedValue}
+            <p className="text-xs md:text-sm mt-1 md:mt-2">
+              <span className="font-medium">Searching:</span> {highlightedValue}
             </p>
           )}
         </div>
       </div>
 
-      <div className="mt-4 text-sm text-slate-500">
+      <div className="mt-3 md:mt-4 text-xs md:text-sm text-slate-500 text-center px-2">
         Click on any node to select it • Hover for magnification
+        <br className="md:hidden" />
+        <span className="hidden md:inline"> • </span>
+        Pinch or scroll to zoom on mobile
       </div>
     </div>
   );
