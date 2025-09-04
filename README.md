@@ -67,8 +67,8 @@ Day60-disk-simulator - 29/08/25
 Day61-Deadlock simulator - 30/08/25  
 Day62-networking-routing-game - 31/08/25  
 Day63-database-indexing-visualizer  - 01/09/25
-Day64-pipeline-simulator -  02/09/25
-
+Day64-pipeline-simulator -  02/09/25  
+Day65-Financial-inflation-Visualizer - 03/09/25
 
 
 
