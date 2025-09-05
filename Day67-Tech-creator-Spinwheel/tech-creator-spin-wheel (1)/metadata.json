@@ -1,0 +1,5 @@
+{
+  "name": "Tech Creator Spin Wheel",
+  "description": "An interactive web application where users can spin a wheel to randomly select a tech creator and view their profile, including their journey, first video, and fan reviews.",
+  "requestFramePermissions": []
+}
