@@ -69,6 +69,9 @@ Day62-networking-routing-game - 31/08/25
 Day63-database-indexing-visualizer  - 01/09/25
 Day64-pipeline-simulator -  02/09/25  
 Day65-Financial-inflation-Visualizer - 03/09/25
+Day66-Foodwaste-visualizer  - 04/09/25
+Day67-Tech-creator-Spinwheel/tech-creator-spin-wheel  - 05/09/25
+Day68-kanban-Board - 06/09/25
 
 
 
