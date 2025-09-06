@@ -1,20 +1,19 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Tech Creator Spin Wheel 🎡
 
-# Run and deploy your AI Studio app
+**Tech Creator Spin Wheel** is an interactive React web application that lets users spin a colorful wheel to discover tech educators. Each spin randomly selects a creator and displays their profile, including subscriber count, favorite quotes, and fan reviews. The app is fully responsive, visually appealing, and gamified for a fun user experience.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1K1guXGlDXlzwyQdnaQQ7WI-YD1M2Jprf
+## Features ✨
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **Spin Wheel Interaction**: Click the spin button to randomly select a tech creator.
+- **Animated Wheel**: Smooth, realistic spinning animation with cubic-bezier easing.
+- **Colorful Segments**: Each creator segment has a unique vibrant color.
+- **Glow Effects**: Pulsating glow while the wheel spins.
+- **Responsive Design**: Works beautifully on mobile, tablet, and desktop.
+- **Creator Profile Page**:
+  - Displays avatar, subscriber count, and favorite quote.
+  - Shows fan reviews in a scrollable section.
+  - "Spin Again" button to return to the wheel.
+- **Gamified UI**: Hover animations, glowing buttons, and bouncing arrow pointer.
+- **Easy Navigation**: React Router enables smooth transitions between pages.
