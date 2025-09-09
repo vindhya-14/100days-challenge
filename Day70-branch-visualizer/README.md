@@ -1,12 +1,14 @@
-# React + Vite
+# ⚡ Branch Predictor Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An **interactive React app** that demonstrates how modern CPUs guess the outcome of branches (`if` conditions) using a **2-bit Branch History Table (BHT)**.  
+It shows **mispredictions, pipeline flushes, and wasted cycles** with animations, helping students visualize this hidden but critical CPU concept.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎛️ **Interactive BHT**: Choose a branch entry and update its history by taking/not taking the branch.
+- 🔄 **2-bit Counter Predictor**: Visualizes "Strongly Taken", "Weakly Taken", etc.
+- ❌ **Mispredictions**: Shows pipeline flush + wasted cycles with animation.
+- 📊 **Live Stats**: Tracks total branches, correct predictions, mispredictions, and wasted cycles.
+- 🎨 **Clean UI**: Modern styling with animations for better understanding.

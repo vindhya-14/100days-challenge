@@ -61,7 +61,7 @@ Day54-PopOver-Component - 23/08/25
 Day55-Tiny-Js-Interpreter - 24/08/25  
 Day56-js-memory-visualizer - 25/08/25  
 Day57-LRU-Simulator - 26/08/25  
-Day58-tcp-handshake-visualizer - 27/08/25
+Day58-tcp-handshake-visualizer - 27/08/25  
 Day59-Dns-Lookup-Visualizer - 28/08/25  
 Day60-disk-simulator - 29/08/25  
 Day61-Deadlock simulator - 30/08/25  
@@ -72,7 +72,8 @@ Day65-Financial-inflation-Visualizer - 03/09/25
 Day66-Foodwaste-visualizer  - 04/09/25  
 Day67-Tech-creator-Spinwheel/tech-creator-spin-wheel  - 05/09/25  
 Day68-kanban-Board - 06/09/25  
-Day69-Mesi-simulator - 07/09/25
+Day69-Mesi-simulator - 07/09/25  
+Day70-Branch-Prediction - 08/09/25
 
 
 
