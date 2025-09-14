@@ -1,4 +1,10 @@
-
+// Recursive-descent parser for arithmetic expressions
+// Grammar (no left recursion):
+// E -> T E'
+// E' -> + T E' | - T E' | ε
+// T -> F T'
+// T' -> * F T' | / F T' | ε
+// F -> ( E ) | number
 
 function tokenize(input) {
   const tokens = []
@@ -94,7 +100,7 @@ class Parser {
       this.next()
       const e = this.parseE()
       const nxt = this.next()
-      if (!nxt || nxt.type !== ')') throw new Error("Expected ')'")
+      if (!nxt || nxt.type !== ')') throw new Error('Expected \')\'')
       return e
     }
     throw new Error('Expected number or (')
