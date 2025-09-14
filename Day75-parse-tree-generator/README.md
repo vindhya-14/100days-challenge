@@ -1,12 +1,13 @@
-# React + Vite
+# 📊 Parse Tree Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React + Vite + TailwindCSS** app that demonstrates how a grammar builds a **parse tree** from an arithmetic expression.  
+It uses a **recursive-descent parser** (no left recursion) and renders the tree visually.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+- Parses arithmetic expressions with `+ - * /` and parentheses
+- Supports multi-digit integers
+- Recursive-descent parser written in JavaScript
+- Visual parse tree display in React
+- TailwindCSS styling for clean UI
