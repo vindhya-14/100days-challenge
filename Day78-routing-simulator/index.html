@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Protocol Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Routing Protocol Simulator</h1>
+        <p>Distance Vector vs Link State Routing</p>
+    </header>
+
+    <div class="controls">
+        <button id="startDV">Start Distance Vector</button>
+        <button id="startLS">Start Link State</button>
+    </div>
+
+    <div class="network">
+        <div class="node" id="A">A</div>
+        <div class="node" id="B">B</div>
+        <div class="node" id="C">C</div>
+        <div class="node" id="D">D</div>
+
+        <!-- Connections -->
+        <svg class="connections" width="100%" height="100%">
+            <line x1="130" y1="80" x2="430" y2="80" class="link" />
+            <line x1="130" y1="80" x2="130" y2="280" class="link" />
+            <line x1="430" y1="80" x2="430" y2="280" class="link" />
+            <line x1="130" y1="280" x2="430" y2="280" class="link" />
+            <line x1="430" y1="80" x2="130" y2="280" class="link diagonal" />
+            <line x1="130" y1="80" x2="430" y2="280" class="link diagonal" />
+        </svg>
+    </div>
+
+    <section class="tables">
+        <h2>Routing Tables</h2>
+        <div id="tablesContainer"></div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
