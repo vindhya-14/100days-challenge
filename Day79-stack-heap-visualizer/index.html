@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack vs Heap Memory Visualizer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="code-editor">
+            <h2>Code Editor</h2>
+            <textarea id="code" spellcheck="false">int main() {
+    int x = 10;
+    int* p = malloc(4);
+    *p = 20;
+    foo(x);
+    free(p);
+}
+
+void foo(int y) {
+    int z = y + 1;
+}
+</textarea>
+            <div class="buttons">
+                <button type="button" onclick="loadCode()">Load</button>
+                <button type="button" onclick="playSimulation()">Play</button>
+                <button type="button" onclick="stepSimulation()">Step</button>
+                <button type="button" onclick="pauseSimulation()">Pause</button>
+                <button type="button" onclick="resetSimulation()">Reset</button>
+            </div>
+        </div>
+
+        <div id="visualizer">
+            <div id="stack">
+                <h2>Stack</h2>
+                <div id="stack-content"></div>
+            </div>
+            <div id="heap">
+                <h2>Heap</h2>
+                <div id="heap-content"></div>
+            </div>
+            <div id="globals">
+                <h2>Globals</h2>
+                <div id="globals-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
