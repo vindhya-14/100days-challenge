@@ -1,0 +1,112 @@
+/* General Layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #2c3e50, #3498db);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0.3rem 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+#pipeline {
+  margin-bottom: 2rem;
+}
+
+#timeline {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background: white;
+  min-height: 200px;
+  overflow-x: auto;
+}
+
+.instruction {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  gap: 0.5rem;
+}
+
+.stage {
+  min-width: 100px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.fetch { background: #9b59b6; }
+.decode { background: #e67e22; }
+.execute { background: #27ae60; }
+.writeback { background: #2980b9; }
+
+/* Hazards */
+.hazard {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-left: 6px;
+}
+
+.raw { background: #e74c3c; }
+.war { background: #f1c40f; }
+.waw { background: #8e44ad; }
+
+#legend ul {
+  list-style: none;
+  padding: 0;
+}
+
+#legend li {
+  margin: 0.3rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  border-radius: 4px;
+}

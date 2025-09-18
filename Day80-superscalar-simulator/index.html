@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superscalar CPU Simulator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Superscalar CPU Simulator</h1>
+        <p>Visualize multiple instructions per cycle with dependencies and hazards</p>
+    </header>
+
+    <main>
+        <section id="controls">
+            <button id="addInstruction">Add Instruction</button>
+            <button id="nextCycle">Next Cycle ▶</button>
+            <button id="reset">Reset</button>
+        </section>
+
+        <section id="pipeline">
+            <h2>Pipeline Timeline</h2>
+            <div id="timeline"></div>
+        </section>
+
+        <section id="legend">
+            <h2>Legend</h2>
+            <ul>
+                <li><span class="box fetch"></span> Fetch</li>
+                <li><span class="box decode"></span> Decode</li>
+                <li><span class="box execute"></span> Execute</li>
+                <li><span class="box writeback"></span> Write Back</li>
+                <li><span class="hazard raw"></span> RAW Hazard</li>
+                <li><span class="hazard war"></span> WAR Hazard</li>
+                <li><span class="hazard waw"></span> WAW Hazard</li>
+            </ul>
+        </section>
+    </main>
+
+   
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
