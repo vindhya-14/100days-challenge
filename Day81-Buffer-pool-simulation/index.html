@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffer Pool Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Buffer Pool Simulation</h1>
+        <p>Visualize how databases cache, evict, and flush pages in memory.</p>
+    </header>
+
+    <main>
+        <section id="controls">
+            <button id="requestPageBtn">Request Random Page</button>
+            <button id="flushBtn">Flush Dirty Pages</button>
+        </section>
+
+        <section id="bufferPool">
+            <h2>Buffer Pool</h2>
+            <div id="bufferSlots" class="slots"></div>
+        </section>
+
+        <section id="disk">
+            <h2>Disk</h2>
+            <div id="diskPages" class="slots"></div>
+        </section>
+
+        <section id="logSection">
+            <h2>Event Log</h2>
+            <ul id="log"></ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
