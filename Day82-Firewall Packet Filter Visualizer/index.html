@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firewall Packet Filter Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Firewall Packet Filter Visualizer</h1>
+    </header>
+
+    <main>
+        <section class="rules-section">
+            <h2>Firewall Rules</h2>
+            <form id="ruleForm">
+                <input type="text" id="srcIP" placeholder="Source IP (e.g. 192.168.0.1)" required />
+                <input type="text" id="destIP" placeholder="Destination IP (e.g. 10.0.0.5)" required />
+                <select id="action" required>
+                    <option value="">Select Action</option>
+                    <option value="allow">Allow</option>
+                    <option value="block">Block</option>
+                </select>
+                <button type="submit">Add Rule</button>
+            </form>
+            <ul id="rulesList"></ul>
+        </section>
+
+        <section class="packet-section">
+            <h2>Simulate Packet</h2>
+            <form id="packetForm">
+                <input type="text" id="packetSrc" placeholder="Packet Source IP" required />
+                <input type="text" id="packetDest" placeholder="Packet Destination IP" required />
+                <button type="submit">Send Packet</button>
+            </form>
+            <div id="packetResult"></div>
+        </section>
+
+        <section class="log-section">
+            <h2>Packet Log</h2>
+            <ul id="packetLog"></ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
