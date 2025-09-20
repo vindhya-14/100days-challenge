@@ -74,18 +74,19 @@ Day67-Tech-creator-Spinwheel/tech-creator-spin-wheel  - 05/09/25
 Day68-kanban-Board - 06/09/25  
 Day69-Mesi-simulator - 07/09/25  
 Day70-Branch-Prediction - 08/09/25  
-Day71-ml-playground - 09/09/25  
-Day72-normalization-tool - 09/10/25  
-Day73-Calendar-app - 09/11/25  
-Day74-query-optimizer-visualizer - 09/12/25  
-Day75-parse-tree-generator - 09/13/25  
-Day76-Transaction-Simulator - 09/14/25  
-Day77-graph-algorithms-playground - 09/15/25  
-Day78-routing-simulator - 09/16/25  
-Day79-stack-heap-visualizer - 09/17/25  
-Day80-superscalar-simulator - 09/18/25  
-Day81-Buffer-pool-simulation - 09/19/25  
-Day82-Firewall Packet Filter Visualizer - 09/20/25  
+Day71 - ml-playground - 09/09/25  
+Day72 - normalization-tool - 10/09/25  
+Day73 - Calendar-app - 11/09/25  
+Day74 - query-optimizer-visualizer - 12/09/25  
+Day75 - parse-tree-generator - 13/09/25  
+Day76 - Transaction-Simulator - 14/09/25  
+Day77 - graph-algorithms-playground - 15/09/25  
+Day78 - routing-simulator - 16/09/25  
+Day79 - stack-heap-visualizer - 17/09/25  
+Day80 - superscalar-simulator - 18/09/25  
+Day81 - Buffer-pool-simulation - 19/09/25  
+Day82 - Firewall Packet Filter Visualizer - 20/09/25  
+
 
 
 
