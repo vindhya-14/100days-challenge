@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Computing Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1><i class="fas fa-atom"></i> Quantum Computing Visualizer</h1>
+        <p>Experiment with Qubits, Superposition, and Quantum Gates in an Interactive Environment</p>
+    </header>
+
+    <main>
+        <!-- Qubit State Section -->
+        <section class="container">
+            <h2><i class="fas fa-cube"></i> Qubit State</h2>
+            <div class="amplitudes">
+                <div class="amplitude-group">
+                    <div class="amplitude-label">|0⟩ Amplitude</div>
+                    <div class="amplitude-inputs">
+                        <input type="number" id="amp0-real" step="0.01" value="1" />
+                        <span class="complex-symbol">+</span>
+                        <input type="number" id="amp0-imag" step="0.01" value="0" />
+                        <span class="complex-symbol">i</span>
+                    </div>
+                </div>
+
+                <div class="amplitude-group">
+                    <div class="amplitude-label">|1⟩ Amplitude</div>
+                    <div class="amplitude-inputs">
+                        <input type="number" id="amp1-real" step="0.01" value="0" />
+                        <span class="complex-symbol">+</span>
+                        <input type="number" id="amp1-imag" step="0.01" value="0" />
+                        <span class="complex-symbol">i</span>
+                    </div>
+                </div>
+
+                <button id="normalizeBtn" class="btn-primary">
+                    <i class="fas fa-balance-scale"></i> Normalize State
+                </button>
+            </div>
+        </section>
+
+        <!-- Bloch Sphere Visualization -->
+        <section class="container">
+            <h2><i class="fas fa-globe"></i> Bloch Sphere Visualization</h2>
+            <canvas id="blochSphere" width="400" height="400"></canvas>
+            <div class="hint">Drag to rotate the sphere | Scroll to zoom</div>
+        </section>
+
+        <!-- Quantum Gates -->
+        <section class="container">
+            <h2><i class="fas fa-sliders-h"></i> Quantum Gates</h2>
+            <div class="gates">
+                <button class="gate-btn" data-gate="X">X Gate</button>
+                <button class="gate-btn" data-gate="Y">Y Gate</button>
+                <button class="gate-btn" data-gate="Z">Z Gate</button>
+                <button class="gate-btn" data-gate="H">H Gate</button>
+                <button class="gate-btn" data-gate="S">S Gate</button>
+                <button class="gate-btn" data-gate="T">T Gate</button>
+            </div>
+
+            <div class="rotation-gates">
+                <div class="rotation-control">
+                    <label for="rxRange">Rx(θ) <span id="rxValue">0.00</span></label>
+                    <input type="range" id="rxRange" min="0" max="6.28" step="0.01" value="0">
+                </div>
+
+                <div class="rotation-control">
+                    <label for="ryRange">Ry(θ) <span id="ryValue">0.00</span></label>
+                    <input type="range" id="ryRange" min="0" max="6.28" step="0.01" value="0">
+                </div>
+
+                <div class="rotation-control">
+                    <label for="rzRange">Rz(θ) <span id="rzValue">0.00</span></label>
+                    <input type="range" id="rzRange" min="0" max="6.28" step="0.01" value="0">
+                </div>
+
+                <button id="applyRotation" class="btn-accent">
+                    <i class="fas fa-play"></i> Apply Rotation
+                </button>
+            </div>
+        </section>
+
+        <!-- Measurement Section -->
+        <section class="container">
+            <h2><i class="fas fa-chart-bar"></i> Measurement</h2>
+            <div class="measurement-controls">
+                <button id="measureBtn" class="btn-warning">
+                    <i class="fas fa-dice-one"></i> Measure Once
+                </button>
+                <button id="measureManyBtn" class="btn-warning">
+                    <i class="fas fa-chart-pie"></i> Measure 1000 Times
+                </button>
+                <button id="undoBtn" class="btn-secondary">
+                    <i class="fas fa-undo"></i> Undo
+                </button>
+            </div>
+
+            <div class="probabilities">
+                <div class="probability-item">
+                    <div class="probability-value" id="prob0">1.0</div>
+                    <div class="probability-label">Probability |0⟩</div>
+                </div>
+                <div class="probability-item">
+                    <div class="probability-value" id="prob1">0.0</div>
+                    <div class="probability-label">Probability |1⟩</div>
+                </div>
+            </div>
+
+            <canvas id="histogram" width="400" height="200"></canvas>
+            <div class="measurement-result" id="measurementResult"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Quantum Computing Visualizer &copy; 2023 | Explore the fundamentals of quantum computing</p>
+    </footer>
+
+    <script src="js/quantum.js"></script>
+    <script src="js/bloch-sphere.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
