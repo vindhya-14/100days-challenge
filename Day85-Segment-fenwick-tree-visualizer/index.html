@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Data Structure Visualizer | Segment Tree & Fenwick Tree</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-project-diagram"></i> Tree Data Structure Visualizer</h1>
+            <p>Interactive Segment Tree & Fenwick Tree (Binary Indexed Tree) Playground</p>
+        </header>
+
+        <div class="controls-panel">
+            <div class="control-group">
+                <h3><i class="fas fa-sliders-h"></i> Array Configuration</h3>
+                <div class="input-group">
+                    <label for="arraySize">Array Size:</label>
+                    <input type="number" id="arraySize" placeholder="Enter size" min="1" max="20" value="8">
+                    <button id="generateArray" class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i> Generate
+                    </button>
+                </div>
+                <div class="input-group">
+                    <label for="arrayType">Array Type:</label>
+                    <select id="arrayType">
+                        <option value="random">Random Values</option>
+                        <option value="sequential">Sequential</option>
+                        <option value="custom">Custom Input</option>
+                    </select>
+                </div>
+                <div id="customArrayInput" class="input-group hidden">
+                    <label for="customValues">Custom Values (comma separated):</label>
+                    <input type="text" id="customValues" placeholder="e.g., 1,3,5,7,9">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3><i class="fas fa-edit"></i> Update Operation</h3>
+                <div class="input-group">
+                    <label for="updateIndex">Index:</label>
+                    <input type="number" id="updateIndex" placeholder="0" min="0">
+                    <label for="updateValue">Value:</label>
+                    <input type="number" id="updateValue" placeholder="New value">
+                    <button id="updateBtn" class="btn btn-warning">
+                        <i class="fas fa-pencil-alt"></i> Update
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3><i class="fas fa-search"></i> Query Operation</h3>
+                <div class="input-group">
+                    <label for="queryLeft">Range:</label>
+                    <input type="number" id="queryLeft" placeholder="Left" min="0">
+                    <span>to</span>
+                    <input type="number" id="queryRight" placeholder="Right" min="0">
+                    <button id="queryBtn" class="btn btn-success">
+                        <i class="fas fa-calculator"></i> Query Sum
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3><i class="fas fa-cog"></i> Visualization Settings</h3>
+                <div class="input-group">
+                    <label for="animationSpeed">Animation Speed:</label>
+                    <input type="range" id="animationSpeed" min="1" max="10" value="5">
+                    <label for="showIndices">Show Indices:</label>
+                    <input type="checkbox" id="showIndices" checked>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="visualization-section">
+                <div class="array-section">
+                    <h2><i class="fas fa-bars"></i> Original Array</h2>
+                    <div id="arrayContainer" class="array-container"></div>
+                </div>
+
+                <div class="trees-container">
+                    <div class="tree-section">
+                        <h2><i class="fas fa-tree"></i> Segment Tree</h2>
+                        <div class="tree-info">
+                            <span>Build Time: O(n)</span>
+                            <span>Update Time: O(log n)</span>
+                            <span>Query Time: O(log n)</span>
+                        </div>
+                        <div id="segmentTreeContainer" class="tree-container"></div>
+                    </div>
+
+                    <div class="tree-section">
+                        <h2><i class="fas fa-sitemap"></i> Fenwick Tree</h2>
+                        <div class="tree-info">
+                            <span>Build Time: O(n log n)</span>
+                            <span>Update Time: O(log n)</span>
+                            <span>Query Time: O(log n)</span>
+                        </div>
+                        <div id="fenwickTreeContainer" class="tree-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h2><i class="fas fa-terminal"></i> Operation Log</h2>
+                <div id="output" class="output-container">
+                    <div class="log-entry welcome">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Welcome! Generate an array to start visualizing tree operations.</span>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <h4>Segment Tree Operations</h4>
+                        <div id="segTreeStats">0 updates, 0 queries</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Fenwick Tree Operations</h4>
+                        <div id="fenwickTreeStats">0 updates, 0 queries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation-section">
+            <h3><i class="fas fa-lightbulb"></i> How It Works</h3>
+            <div class="explanation-content">
+                <div class="explanation-item">
+                    <h4>Segment Tree</h4>
+                    <p>A tree data structure used for storing information about intervals. Perfect for range queries and
+                        point updates.</p>
+                </div>
+                <div class="explanation-item">
+                    <h4>Fenwick Tree (BIT)</h4>
+                    <p>Also known as Binary Indexed Tree, provides efficient range sum queries and point updates with
+                        less space.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
