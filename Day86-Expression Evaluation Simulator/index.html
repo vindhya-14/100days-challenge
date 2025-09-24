@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expression Evaluation Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> Expression Evaluation Simulator</h1>
+            <p>Visualize infix to postfix conversion and expression evaluation step by step</p>
+        </header>
+
+        <div class="input-section card">
+            <div class="input-group">
+                <label for="expression"><i class="fas fa-keyboard"></i> Enter Infix Expression</label>
+                <div class="input-with-examples">
+                    <input type="text" id="expression" placeholder="e.g., (3+4)*2-5/2" autocomplete="off">
+                    <div class="examples">
+                        <span class="example-tag">Examples:</span>
+                        <button class="example-btn" data-expr="(3+4)*2">(3+4)*2</button>
+                        <button class="example-btn" data-expr="2^3+5*2">2^3+5*2</button>
+                        <button class="example-btn" data-expr="10/(2+3)*4">10/(2+3)*4</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="convertBtn" class="btn btn-primary">
+                    <i class="fas fa-play"></i> Convert & Animate
+                </button>
+                <button id="stepBtn" class="btn btn-secondary">
+                    <i class="fas fa-step-forward"></i> Step
+                </button>
+                <button id="pauseBtn" class="btn btn-warning" style="display: none;">
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button id="resetBtn" class="btn btn-danger">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+
+                <div class="speed-control">
+                    <label for="speed"><i class="fas fa-tachometer-alt"></i> Speed:</label>
+                    <input type="range" id="speed" min="0.5" max="5" step="0.5" value="1">
+                    <span id="speedValue">1x</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="card">
+                    <h2><i class="fas fa-list-ol"></i> Steps & Logs</h2>
+                    <div id="stepsLog" class="log-container"></div>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-history"></i> Recent Expressions</h2>
+                    <div id="history" class="history-container"></div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card">
+                    <h2><i class="fas fa-project-diagram"></i> Stack Animation</h2>
+                    <div class="stack-section">
+                        <div class="stack-label">Operators Stack</div>
+                        <div id="operatorStack" class="stack-container"></div>
+                    </div>
+                    <div class="stack-section">
+                        <div class="stack-label">Values Stack</div>
+                        <div id="valueStack" class="stack-container"></div>
+                    </div>
+                </div>
+
+                <div class="info-cards">
+                    <div class="card info-card">
+                        <h3><i class="fas fa-infinity"></i> Postfix Expression</h3>
+                        <div id="postfixExpr" class="postfix-display">—</div>
+                    </div>
+
+                    <div class="card info-card">
+                        <h3><i class="fas fa-check-circle"></i> Result</h3>
+                        <div id="result" class="result-display">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tokens-section card">
+            <h2><i class="fas fa-code"></i> Token Visualization</h2>
+            <div class="tokens-container">
+                <div class="token-type">
+                    <h4>Infix Tokens</h4>
+                    <div id="infixTokens" class="tokens-list"></div>
+                </div>
+                <div class="token-type">
+                    <h4>Postfix Tokens</h4>
+                    <div id="postfixTokens" class="tokens-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Supports: + - * / ^ ( ) and integers. Operators precedence: ^ > * / > + -</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
