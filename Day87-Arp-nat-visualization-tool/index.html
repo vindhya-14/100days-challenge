@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ARP & NAT Visualization Tool</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <h1>ARP & NAT — Visualizer</h1>
+        <p class="subtitle">See how IP → MAC resolution works and how NAT translates packets</p>
+    </header>
+
+    <main class="container">
+        <section class="controls">
+            <div class="group">
+                <button id="btn-arp" class="btn">Simulate ARP (Host A → Host B)</button>
+                <button id="btn-local" class="btn">Send Local Packet (A → B)</button>
+                <button id="btn-nat" class="btn primary">Send NAT Packet (A → Internet)</button>
+                <button id="btn-reset" class="btn ghost">Reset</button>
+            </div>
+            <div class="info">
+                <label><strong>Host A:</strong> 10.0.0.2</label>
+                <label><strong>Host B:</strong> 10.0.0.3</label>
+                <label><strong>Router (Public):</strong> 52.34.12.5</label>
+            </div>
+        </section>
+
+        <section class="visual">
+            <!-- SVG canvas for topology -->
+            <svg id="topo" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
+                <!-- Hosts -->
+                <g id="hostA" class="node" transform="translate(120,220)">
+                    <rect x="-60" y="-30" width="120" height="60" rx="8" />
+                    <text x="0" y="-6" class="nodetitle">Host A</text>
+                    <text x="0" y="14" class="nodeip">10.0.0.2</text>
+                </g>
+
+                <g id="hostB" class="node" transform="translate(120,80)">
+                    <rect x="-60" y="-30" width="120" height="60" rx="8" />
+                    <text x="0" y="-6" class="nodetitle">Host B</text>
+                    <text x="0" y="14" class="nodeip">10.0.0.3</text>
+                </g>
+
+                <!-- Switch / LAN -->
+                <g id="switch" transform="translate(360,150)">
+                    <rect x="-70" y="-36" width="140" height="72" rx="10" class="switch" />
+                    <text x="0" y="4" class="nodetitle small">LAN Switch</text>
+                </g>
+
+                <!-- Router / NAT -->
+                <g id="router" transform="translate(640,150)">
+                    <rect x="-70" y="-40" width="140" height="80" rx="12" class="router" />
+                    <text x="0" y="-6" class="nodetitle">NAT Router</text>
+                    <text x="0" y="16" class="nodeip small">Private: 10.0.0.1</text>
+                    <text x="0" y="32" class="nodeip small">Public: 52.34.12.5</text>
+                </g>
+
+                <!-- Internet cloud -->
+                <g id="internet" transform="translate(900,150)">
+                    <ellipse cx="0" cy="0" rx="90" ry="40" class="cloud" />
+                    <text x="0" y="4" class="nodetitle">Internet</text>
+                </g>
+
+                <!-- Links (lines) -->
+                <line id="lineA" x1="190" y1="220" x2="290" y2="150" class="link" />
+                <line id="lineB" x1="190" y1="80" x2="290" y2="150" class="link" />
+                <line id="lineSwitchRouter" x1="430" y1="150" x2="570" y2="150" class="link" />
+                <line id="lineRouterNet" x1="710" y1="150" x2="820" y2="150" class="link" />
+                <line id="lineToInternet" x1="820" y1="150" x2="810" y2="150" class="link hidden" />
+
+                <!-- Packet (moving circle) -->
+                <circle id="packet" r="8" class="packet hidden" cx="120" cy="220" />
+
+                <!-- Broadcast ring for ARP -->
+                <circle id="broadcastRing" r="0" class="broadcast hidden" cx="290" cy="150" />
+            </svg>
+
+            <aside class="tables">
+                <div class="panel">
+                    <h3>Host A ARP Cache</h3>
+                    <table id="arpA" class="table">
+                        <thead>
+                            <tr>
+                                <th>IP</th>
+                                <th>MAC</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="panel">
+                    <h3>Router NAT Table</h3>
+                    <table id="natTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Private IP:Port</th>
+                                <th>Public IP:Port</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </aside>
+
+        </section>
+
+        <section class="legend">
+            <p><strong>Legend:</strong> ARP — Address Resolution Protocol (IP → MAC). NAT — Network Address Translation
+                (Private ↔ Public IP:Port mapping).</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <small>Built for demonstration — tweak timings & styling in <code>js/app.js</code></small>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
