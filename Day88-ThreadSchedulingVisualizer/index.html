@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thread Scheduling Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> Thread Scheduling Visualizer</h1>
+            <p class="subtitle">Visualize and compare different CPU scheduling algorithms</p>
+        </header>
+
+        <div class="controls card">
+            <h2 class="card-title"><i class="fas fa-cog"></i> Simulation Settings</h2>
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label for="algorithm">Scheduling Algorithm</label>
+                    <select id="algorithm">
+                        <option value="roundRobin">Round Robin</option>
+                        <option value="priority">Priority Scheduling</option>
+                        <option value="multilevelQueue">Multilevel Queue</option>
+                        <option value="fcfs">First-Come, First-Served</option>
+                        <option value="sjf">Shortest Job First</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="timeQuantum">Time Quantum (for RR)</label>
+                    <input type="number" id="timeQuantum" value="2" min="1">
+                </div>
+
+                <div class="control-group">
+                    <label for="queueCount">Queue Count (for MLQ)</label>
+                    <input type="number" id="queueCount" value="2" min="2" max="4">
+                </div>
+            </div>
+        </div>
+
+        <div class="job-input card">
+            <h2 class="card-title"><i class="fas fa-list"></i> Job Configuration</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Name</th>
+                        <th>Burst Time</th>
+                        <th>Arrival Time</th>
+                        <th>Priority</th>
+                        <th>Queue (MLQ)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="jobTableBody">
+                    <!-- Jobs will be added here dynamically -->
+                </tbody>
+            </table>
+
+            <div class="action-buttons">
+                <button id="addJob" class="btn-primary"><i class="fas fa-plus"></i> Add Job</button>
+                <button id="generateRandom" class="btn-warning"><i class="fas fa-dice"></i> Generate Random
+                    Jobs</button>
+                <button id="clearAll" class="btn-danger"><i class="fas fa-trash"></i> Clear All</button>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="simulate" class="btn-success"><i class="fas fa-play"></i> Run Simulation</button>
+            <button id="compare" class="btn-primary"><i class="fas fa-chart-bar"></i> Compare Algorithms</button>
+        </div>
+
+        <div class="visualization card">
+            <h2 class="card-title"><i class="fas fa-chart-line"></i> Scheduling Timeline</h2>
+
+            <div id="timeline" class="empty">
+                <div class="empty-state">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>Run a simulation to see the timeline visualization</p>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
