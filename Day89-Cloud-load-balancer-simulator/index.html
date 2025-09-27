@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cloud Load Balancer Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-animation">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+    </div>
+
+    <header class="topbar">
+        <div class="header-content">
+            <div class="title-section">
+                <h1>Cloud Load Balancer Simulator</h1>
+                <p class="tag">Visualize Round Robin • Least Connections • Weighted Round Robin • IP Hash</p>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Ready</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="controls">
+            <div class="control-panel">
+                <h2 class="panel-title">Configuration</h2>
+
+                <div class="control-group">
+                    <label class="control-label">Load Balancing Algorithm</label>
+                    <select id="algoSelect" class="styled-select">
+                        <option value="rr">Round Robin</option>
+                        <option value="lc">Least Connections</option>
+                        <option value="wrr">Weighted Round Robin</option>
+                        <option value="iphash">IP Hash</option>
+                    </select>
+                    <div class="algorithm-info" id="algoInfo">
+                        Distributes requests sequentially to each server in rotation.
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Request Rate: <span id="rateVal">4</span> req/sec</label>
+                    <input id="rate" type="range" min="1" max="30" value="4" class="styled-slider">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Simulation Speed: <span id="speedVal">1x</span></label>
+                    <input id="speed" type="range" min="0.25" max="3" step="0.25" value="1" class="styled-slider">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Request Duration: <span id="durationVal">500-1500ms</span></label>
+                    <input id="duration" type="range" min="200" max="3000" step="100" value="1000"
+                        class="styled-slider">
+                </div>
+
+                <div class="button-group">
+                    <button id="startBtn" class="btn primary">
+                        <span class="btn-icon">▶</span> Start
+                    </button>
+                    <button id="pauseBtn" class="btn secondary" disabled>
+                        <span class="btn-icon">⏸</span> Pause
+                    </button>
+                    <button id="stepBtn" class="btn secondary">
+                        <span class="btn-icon">⏭</span> Step
+                    </button>
+                    <button id="resetBtn" class="btn secondary">
+                        <span class="btn-icon">↺</span> Reset
+                    </button>
+                </div>
+            </div>
+
+            <div class="server-panel">
+                <div class="panel-header">
+                    <h3>Server Configuration</h3>
+                    <div class="server-count" id="serverCount">3 servers</div>
+                </div>
+
+                <div id="serversList" class="servers-list"></div>
+
+                <div class="server-add">
+                    <div class="add-controls">
+                        <input id="newServerName" placeholder="Server name" class="text-input" />
+                        <input id="newServerWeight" type="number" min="1" max="10" value="1" class="number-input" />
+                        <button id="addServerBtn" class="btn accent">
+                            <span class="btn-icon">+</span> Add
+                        </button>
+                    </div>
+                    <div class="preset-buttons">
+                        <button class="btn small" id="presetBalanced">Balanced (3x1)</button>
+                        <button class="btn small" id="presetWeighted">Weighted (1,2,3)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="visual">
+            <div class="viz-header">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="incomingCount">0</div>
+                        <div class="stat-label">Incoming Requests</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="processedCount">0</div>
+                        <div class="stat-label">Processed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="activeCount">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="successRate">100%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="arena" class="arena">
+                <!-- Servers will be rendered here -->
+            </div>
+
+            <div class="dashboard">
+                <div class="metrics-panel">
+                    <h3>Performance Metrics</h3>
+                    <div id="metrics" class="metrics-container"></div>
+                </div>
+
+                <div class="log-panel">
+                    <div class="log-header">
+                        <h3>Event Log</h3>
+                        <button id="clearLog" class="btn small">Clear</button>
+                    </div>
+                    <div id="log" class="log"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <small>💡 Tip: Use Spacebar to play/pause • Add server failures to test resilience • Adjust weights for
+                optimal distribution</small>
+            <div class="footer-links">
+                <button class="link-btn" id="exportBtn">Export Data</button>
+                <button class="link-btn" id="helpBtn">Help</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Load Balancer Simulator Guide</h3>
+                <button class="close-btn" id="closeHelp">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4>Algorithms</h4>
+                    <ul>
+                        <li><strong>Round Robin:</strong> Distributes requests sequentially</li>
+                        <li><strong>Least Connections:</strong> Sends to server with fewest active connections</li>
+                        <li><strong>Weighted Round Robin:</strong> Accounts for server capacity</li>
+                        <li><strong>IP Hash:</strong> Sticky sessions based on client IP</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>Keyboard Shortcuts</h4>
+                    <ul>
+                        <li><kbd>Space</kbd> Play/Pause</li>
+                        <li><kbd>S</kbd> Single Step</li>
+                        <li><kbd>R</kbd> Reset</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
