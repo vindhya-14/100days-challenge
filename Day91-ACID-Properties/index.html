@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACID Properties Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>ACID Properties Demo</h1>
+            <p class="subtitle">Simulate database transactions with Atomicity, Consistency, Isolation, and Durability
+                guarantees</p>
+        </header>
+
+        <section class="acid-properties">
+            <div class="property-card atomicity">
+                <div class="property-icon">⚛️</div>
+                <h3 class="property-title">Atomicity</h3>
+                <p>Transactions are all-or-nothing. If any part fails, the entire transaction is rolled back.</p>
+            </div>
+
+            <div class="property-card consistency">
+                <div class="property-icon">⚖️</div>
+                <h3 class="property-title">Consistency</h3>
+                <p>Transactions bring the database from one valid state to another, maintaining all invariants.</p>
+            </div>
+
+            <div class="property-card isolation">
+                <div class="property-icon">🔒</div>
+                <h3 class="property-title">Isolation</h3>
+                <p>Concurrent transactions execute separately without interfering with each other.</p>
+            </div>
+
+            <div class="property-card durability">
+                <div class="property-icon">💾</div>
+                <h3 class="property-title">Durability</h3>
+                <p>Once a transaction is committed, it remains so, even in the event of system failure.</p>
+            </div>
+        </section>
+
+        <div class="demo-area">
+            <div class="transaction-panel">
+                <h2 class="panel-title">Transaction Simulation</h2>
+
+                <div class="transaction-controls">
+                    <button class="btn btn-primary" id="startTransaction">Start Transaction</button>
+                    <button class="btn btn-success" id="commitTransaction" disabled>Commit</button>
+                    <button class="btn btn-danger" id="rollbackTransaction" disabled>Rollback</button>
+                    <button class="btn btn-warning" id="simulateFailure" disabled>Simulate Failure</button>
+                </div>
+
+                <div class="transaction-steps">
+                    <div class="step" id="step1">
+                        <span class="step-icon">1</span> Begin Transaction
+                    </div>
+                    <div class="step" id="step2">
+                        <span class="step-icon">2</span> Read Account A Balance
+                    </div>
+                    <div class="step" id="step3">
+                        <span class="step-icon">3</span> Read Account B Balance
+                    </div>
+                    <div class="step" id="step4">
+                        <span class="step-icon">4</span> Deduct $100 from Account A
+                    </div>
+                    <div class="step" id="step5">
+                        <span class="step-icon">5</span> Add $100 to Account B
+                    </div>
+                    <div class="step" id="step6">
+                        <span class="step-icon">6</span> Commit Transaction
+                    </div>
+                </div>
+
+                <div class="failure-options">
+                    <div class="failure-title">Failure Simulation Options:</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="failStep4">
+                            <label for="failStep4">Fail at Step 4</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="failStep5">
+                            <label for="failStep5">Fail at Step 5</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="failStep6">
+                            <label for="failStep6">Fail at Step 6 (Before Commit)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="database-panel">
+                <h2 class="panel-title">Database State</h2>
+
+                <div class="database-state">
+                    <div class="account" id="accountA">
+                        <div class="account-name">Account A</div>
+                        <div class="account-balance">$1000</div>
+                    </div>
+
+                    <div class="account" id="accountB">
+                        <div class="account-name">Account B</div>
+                        <div class="account-balance">$1000</div>
+                    </div>
+
+                    <div class="account" id="accountC">
+                        <div class="account-name">Account C</div>
+                        <div class="account-balance">$1000</div>
+                    </div>
+
+                    <div class="account" id="accountD">
+                        <div class="account-name">Account D</div>
+                        <div class="account-balance">$1000</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h3>Transaction Explanation</h3>
+                    <p id="explanation">This demo simulates a money transfer between Account A and Account B. Click
+                        "Start Transaction" to begin.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="logs-panel">
+            <h2 class="panel-title">Transaction Log</h2>
+            <div class="log-container" id="logContainer">
+                <div class="log-entry log-info">System initialized. Ready for transactions.</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>ACID Properties Demo &copy; 2023 | Demonstrating database transaction guarantees</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
