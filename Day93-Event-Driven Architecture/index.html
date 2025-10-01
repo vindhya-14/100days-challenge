@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Event-Driven Architecture Simulator</h1>
+            <p>Visualize how events flow through publishers, brokers, and subscribers</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="eventType">Event Type:</label>
+                <select id="eventType">
+                    <option value="user.created">User Created</option>
+                    <option value="order.placed">Order Placed</option>
+                    <option value="payment.processed">Payment Processed</option>
+                    <option value="notification.sent">Notification Sent</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="eventData">Event Data:</label>
+                <input type="text" id="eventData" placeholder="Enter event data...">
+            </div>
+            <button id="publishBtn">Publish Event</button>
+            <button id="autoPublishBtn">Auto Publish (5 events)</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+
+        <div class="architecture">
+            <div class="component publishers">
+                <h2>Publishers</h2>
+                <div class="publisher" id="publisher1">
+                    <div class="component-icon">📤</div>
+                    <div class="component-name">User Service</div>
+                    <div class="event-queue"></div>
+                </div>
+                <div class="publisher" id="publisher2">
+                    <div class="component-icon">📤</div>
+                    <div class="component-name">Order Service</div>
+                    <div class="event-queue"></div>
+                </div>
+                <div class="publisher" id="publisher3">
+                    <div class="component-icon">📤</div>
+                    <div class="component-name">Payment Service</div>
+                    <div class="event-queue"></div>
+                </div>
+            </div>
+
+            <div class="component broker">
+                <h2>Event Broker</h2>
+                <div class="broker-container">
+                    <div class="component-icon">🔄</div>
+                    <div class="component-name">Message Broker</div>
+                    <div class="topics">
+                        <div class="topic" data-topic="user.created">
+                            <span>user.created</span>
+                            <div class="subscribers-count">2 subscribers</div>
+                        </div>
+                        <div class="topic" data-topic="order.placed">
+                            <span>order.placed</span>
+                            <div class="subscribers-count">3 subscribers</div>
+                        </div>
+                        <div class="topic" data-topic="payment.processed">
+                            <span>payment.processed</span>
+                            <div class="subscribers-count">2 subscribers</div>
+                        </div>
+                        <div class="topic" data-topic="notification.sent">
+                            <span>notification.sent</span>
+                            <div class="subscribers-count">1 subscriber</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component subscribers">
+                <h2>Subscribers</h2>
+                <div class="subscriber" data-topics="user.created,notification.sent">
+                    <div class="component-icon">📨</div>
+                    <div class="component-name">Email Service</div>
+                    <div class="event-queue"></div>
+                </div>
+                <div class="subscriber" data-topics="user.created,order.placed">
+                    <div class="component-icon">📊</div>
+                    <div class="component-name">Analytics Service</div>
+                    <div class="event-queue"></div>
+                </div>
+                <div class="subscriber" data-topics="order.placed,payment.processed">
+                    <div class="component-icon">📱</div>
+                    <div class="component-name">Notification Service</div>
+                    <div class="event-queue"></div>
+                </div>
+                <div class="subscriber" data-topics="order.placed">
+                    <div class="component-icon">📦</div>
+                    <div class="component-name">Shipping Service</div>
+                    <div class="event-queue"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-log">
+            <h2>Event Log</h2>
+            <div class="log-container" id="logContainer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
