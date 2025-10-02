@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C/C++ Pointer & Reference Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>C/C++ Pointer & Reference Visualizer</h1>
+            <p class="subtitle">Visualize memory allocation, pointers, references, and dereferencing in real-time</p>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <h2 class="section-title">Create Variables</h2>
+
+                <div class="form-group">
+                    <label for="varType">Variable Type</label>
+                    <select id="varType">
+                        <option value="int">int</option>
+                        <option value="float">float</option>
+                        <option value="char">char</option>
+                        <option value="double">double</option>
+                        <option value="string">string</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="varName">Variable Name</label>
+                    <input type="text" id="varName" placeholder="e.g., x, value, count">
+                </div>
+
+                <div class="form-group">
+                    <label for="varValue">Initial Value</label>
+                    <input type="text" id="varValue" placeholder="e.g., 42, 3.14, 'A'">
+                </div>
+
+                <div class="button-group">
+                    <button id="createVarBtn" class="btn btn-primary">Create Variable</button>
+                    <button id="createHeapVarBtn" class="btn btn-secondary">Create Heap Variable</button>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 30px;">Pointer Operations</h2>
+
+                <div class="form-group">
+                    <label for="pointerVar">Select Variable</label>
+                    <select id="pointerVar">
+                        <option value="">-- Select a variable --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pointerName">Pointer Name</label>
+                    <input type="text" id="pointerName" placeholder="e.g., ptr, p">
+                </div>
+
+                <div class="button-group">
+                    <button id="createPtrBtn" class="btn btn-primary">Create Pointer</button>
+                    <button id="derefPtrBtn" class="btn btn-secondary">Dereference Pointer</button>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 30px;">Reference Operations</h2>
+
+                <div class="form-group">
+                    <label for="refVar">Select Variable</label>
+                    <select id="refVar">
+                        <option value="">-- Select a variable --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="refName">Reference Name</label>
+                    <input type="text" id="refName" placeholder="e.g., ref, r">
+                </div>
+
+                <button id="createRefBtn" class="btn btn-primary">Create Reference</button>
+
+                <h2 class="section-title" style="margin-top: 30px;">Memory Operations</h2>
+                <div class="button-group">
+                    <button id="freeHeapBtn" class="btn btn-warning">Free Heap Memory</button>
+                    <button id="clearAllBtn" class="btn btn-danger">Clear All</button>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend</h3>
+                    <div class="legend-item">
+                        <div class="legend-color stack-color"></div>
+                        <span>Stack Variable</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color heap-color"></div>
+                        <span>Heap Variable</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color pointer-color"></div>
+                        <span>Pointer</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color reference-color"></div>
+                        <span>Reference</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-area">
+                <h2 class="section-title">Memory Visualization</h2>
+
+                <div class="stack-section">
+                    <div class="section-header">
+                        <h3 class="memory-type">Stack Memory</h3>
+                        <span class="memory-info">Automatic allocation, fixed size</span>
+                    </div>
+                    <div class="memory-container" id="stackMemory">
+                        <!-- Stack memory blocks will be generated here -->
+                    </div>
+                </div>
+
+                <div class="heap-section">
+                    <div class="section-header">
+                        <h3 class="memory-type">Heap Memory</h3>
+                        <span class="memory-info">Dynamic allocation, manual management</span>
+                    </div>
+                    <div class="memory-container" id="heapMemory">
+                        <!-- Heap memory blocks will be generated here -->
+                    </div>
+                </div>
+
+                <div class="code-preview">
+                    <div class="section-header">
+                        <h3 class="section-title">Code Representation</h3>
+                        <button id="copyCodeBtn" class="btn btn-small">Copy Code</button>
+                    </div>
+                    <pre id="codeOutput">// Code will appear here as you create variables and pointers</pre>
+                </div>
+
+                <div class="explanation">
+                    <h3 class="section-title">Explanation</h3>
+                    <div id="explanationText">
+                        <p>Create variables, pointers, and references to see how they interact in memory.</p>
+                        <ul>
+                            <li><strong>Pointers</strong> store memory addresses and can be reassigned</li>
+                            <li><strong>References</strong> are aliases to existing variables</li>
+                            <li><strong>Stack</strong> memory is automatically managed</li>
+                            <li><strong>Heap</strong> memory requires manual allocation and deallocation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
