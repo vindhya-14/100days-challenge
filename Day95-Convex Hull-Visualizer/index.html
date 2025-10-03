@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convex Hull Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Convex Hull Playground</h1>
+            <p class="subtitle">Visualize computational geometry algorithms in real-time</p>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="controls">
+                <div class="control-panel">
+                    <h2>Algorithms</h2>
+                    <div class="algorithm-selector">
+                        <button class="algorithm-btn active" data-algorithm="jarvis">
+                            <span class="algorithm-icon">⛵</span> Jarvis March (Gift Wrapping)
+                        </button>
+                        <button class="algorithm-btn" data-algorithm="graham">
+                            <span class="algorithm-icon">📊</span> Graham Scan
+                        </button>
+                        <button class="algorithm-btn" data-algorithm="quickhull">
+                            <span class="algorithm-icon">⚡</span> QuickHull
+                        </button>
+                        <button class="algorithm-btn" data-algorithm="andrew">
+                            <span class="algorithm-icon">📈</span> Andrew's Monotone Chain
+                        </button>
+                    </div>
+                </div>
+
+                <div class="control-panel">
+                    <h2>Actions</h2>
+                    <div class="action-buttons">
+                        <button class="action-btn primary" id="stepBtn">Step Forward</button>
+                        <button class="action-btn" id="resetBtn">Reset Points</button>
+                        <button class="action-btn" id="randomBtn">Random Points</button>
+                        <button class="action-btn danger" id="clearBtn">Clear All</button>
+                    </div>
+                </div>
+
+                <div class="control-panel">
+                    <h2>Visualization</h2>
+                    <div class="visualization-options">
+                        <div class="option">
+                            <input type="checkbox" id="showSteps" checked>
+                            <label for="showSteps">Show Algorithm Steps</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="showHull" checked>
+                            <label for="showHull">Show Convex Hull</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="showPoints" checked>
+                            <label for="showPoints">Show Points</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="autoPlay">
+                            <label for="autoPlay">Auto Play</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-panel">
+                    <h2>Statistics</h2>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="pointCount">0</div>
+                            <div class="stat-label">Points</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="hullSize">0</div>
+                            <div class="stat-label">Hull Size</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="stepCount">0</div>
+                            <div class="stat-label">Steps</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="timeComplexity">O(n)</div>
+                            <div class="stat-label">Time Complexity</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>About <span id="algorithmName">Jarvis March</span></h2>
+            <div class="algorithm-info" id="algorithmInfo">
+                The Jarvis March algorithm, also known as the Gift Wrapping algorithm, finds the convex hull by
+                "wrapping" around the points. It starts with the leftmost point and repeatedly finds the point that
+                makes the smallest counterclockwise turn relative to the current point.
+            </div>
+            <div class="complexity">
+                <div class="complexity-item">
+                    <div class="stat-label">Time Complexity</div>
+                    <div class="stat-value">O(nh)</div>
+                </div>
+                <div class="complexity-item">
+                    <div class="stat-label">Space Complexity</div>
+                    <div class="stat-value">O(h)</div>
+                </div>
+                <div class="complexity-item">
+                    <div class="stat-label">Best Case</div>
+                    <div class="stat-value">O(n)</div>
+                </div>
+                <div class="complexity-item">
+                    <div class="stat-label">Worst Case</div>
+                    <div class="stat-value">O(n²)</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Computational Geometry Playground | Convex Hull Visualization</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
