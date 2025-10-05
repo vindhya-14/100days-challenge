@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Sharding & Replication Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Database Sharding & Replication Demo</h1>
+            <p>Visualize how data is distributed across shards and replicated for fault tolerance</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="shard-count">Number of Shards:</label>
+                <input type="range" id="shard-count" min="2" max="8" value="4">
+                <span id="shard-count-value">4</span>
+            </div>
+            <div class="control-group">
+                <label for="replica-count">Replicas per Shard:</label>
+                <input type="range" id="replica-count" min="1" max="3" value="2">
+                <span id="replica-count-value">2</span>
+            </div>
+            <div class="control-group">
+                <button id="add-data">Add Sample Data</button>
+                <button id="simulate-failure">Simulate Failure</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="shards-container" id="shards-container">
+                <!-- Shards will be dynamically generated here -->
+            </div>
+            <div class="data-flow" id="data-flow">
+                <!-- Data flow animation will be shown here -->
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Data Items:</span>
+                <span class="stat-value" id="total-data">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Active Shards:</span>
+                <span class="stat-value" id="active-shards">4</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Failed Replicas:</span>
+                <span class="stat-value" id="failed-replicas">0</span>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h2>How Sharding & Replication Work</h2>
+            <div class="explanation-content">
+                <div class="concept">
+                    <h3>Sharding</h3>
+                    <p>Sharding horizontally partitions data across multiple database servers (shards). Each shard
+                        contains a subset of the total data, allowing the system to scale beyond the capacity of a
+                        single server.</p>
+                    <p>In this demo, data is distributed using a simple hash-based algorithm where each data item is
+                        assigned to a shard based on its ID.</p>
+                </div>
+                <div class="concept">
+                    <h3>Replication</h3>
+                    <p>Replication creates copies of data (replicas) across multiple servers. If one replica fails, the
+                        system can continue operating using other replicas, providing fault tolerance.</p>
+                    <p>In this demo, each shard has multiple replicas, and when a replica fails, the system
+                        automatically recovers by using data from healthy replicas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
