@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices Communication Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-network-wired"></i> Microservices Communication Visualizer</h1>
+            <div class="controls">
+                <button id="addService" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Service
+                </button>
+                <button id="clearAll" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+                <button id="exportBtn" class="btn btn-success">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="protocol-selector">
+                    <h3>Communication Protocol</h3>
+                    <div class="protocol-options">
+                        <label class="protocol-option active" data-protocol="REST">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>REST</span>
+                        </label>
+                        <label class="protocol-option" data-protocol="gRPC">
+                            <i class="fas fa-bolt"></i>
+                            <span>gRPC</span>
+                        </label>
+                        <label class="protocol-option" data-protocol="MQ">
+                            <i class="fas fa-envelope"></i>
+                            <span>Message Queue</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="service-list">
+                    <h3>Services</h3>
+                    <div id="servicesContainer" class="services-container">
+                        <!-- Services will be dynamically added here -->
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <h3>Statistics</h3>
+                    <div class="stat-item">
+                        <span>Active Services:</span>
+                        <span id="serviceCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Active Connections:</span>
+                        <span id="connectionCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Current Protocol:</span>
+                        <span id="currentProtocol">REST</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="visualization-area">
+                <div class="canvas-container">
+                    <canvas id="networkCanvas"></canvas>
+                    <div id="noServicesMessage" class="no-services">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>No Services Added</h3>
+                        <p>Click "Add Service" to start visualizing microservices communication</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Service Configuration Modal -->
+        <div id="serviceModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Configure Service</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="serviceName">Service Name:</label>
+                        <input type="text" id="serviceName" placeholder="e.g., UserService">
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceColor">Service Color:</label>
+                        <input type="color" id="serviceColor" value="#4f46e5">
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceType">Service Type:</label>
+                        <select id="serviceType">
+                            <option value="API">API Gateway</option>
+                            <option value="Auth">Authentication</option>
+                            <option value="Database">Database</option>
+                            <option value="Cache">Cache</option>
+                            <option value="Message">Message Broker</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveService" class="btn btn-primary">Save Service</button>
+                    <button id="cancelService" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connection Configuration Modal -->
+        <div id="connectionModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Configure Connection</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>From:</label>
+                        <span id="fromService"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>To:</label>
+                        <span id="toService"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="endpoint">Endpoint/Queue:</label>
+                        <input type="text" id="endpoint" placeholder="e.g., /api/users or user.queue">
+                    </div>
+                    <div class="form-group">
+                        <label for="method">Method/Type:</label>
+                        <select id="method">
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                            <option value="PUT">PUT</option>
+                            <option value="DELETE">DELETE</option>
+                            <option value="PUBLISH">PUBLISH</option>
+                            <option value="SUBSCRIBE">SUBSCRIBE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataFlow">Data Flow:</label>
+                        <textarea id="dataFlow" placeholder="Describe the data being transmitted..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveConnection" class="btn btn-primary">Save Connection</button>
+                    <button id="cancelConnection" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
