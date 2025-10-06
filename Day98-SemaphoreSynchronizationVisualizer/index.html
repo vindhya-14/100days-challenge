@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaphore & Synchronization Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Semaphore & Synchronization Visualizer</h1>
+            <p>Visualizing how semaphores control access to shared resources</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="processCount">Number of Processes:</label>
+                <input type="number" id="processCount" min="1" max="10" value="5">
+            </div>
+            <div class="control-group">
+                <label for="semaphoreValue">Semaphore Initial Value:</label>
+                <input type="number" id="semaphoreValue" min="1" max="5" value="1">
+            </div>
+            <div class="control-group">
+                <button id="startBtn">Start Simulation</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="semaphore-display">
+                <div class="semaphore-label">Semaphore Value:</div>
+                <div class="semaphore-value" id="semaphoreDisplay">1</div>
+            </div>
+
+            <div class="process-container">
+                <div class="process" id="process0">
+                    <div class="process-id">P0</div>
+                    <div class="process-state">Waiting</div>
+                </div>
+                <div class="process" id="process1">
+                    <div class="process-id">P1</div>
+                    <div class="process-state">Waiting</div>
+                </div>
+                <div class="process" id="process2">
+                    <div class="process-id">P2</div>
+                    <div class="process-state">Waiting</div>
+                </div>
+                <div class="process" id="process3">
+                    <div class="process-id">P3</div>
+                    <div class="process-state">Waiting</div>
+                </div>
+                <div class="process" id="process4">
+                    <div class="process-id">P4</div>
+                    <div class="process-state">Waiting</div>
+                </div>
+            </div>
+
+            <div class="critical-section">
+                <div class="section-label">Critical Section</div>
+                <div class="section-content" id="criticalSection">Empty</div>
+            </div>
+
+            <div class="queue">
+                <div class="queue-label">Waiting Queue</div>
+                <div class="queue-content" id="waitingQueue">Empty</div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>How Semaphores Work</h3>
+            <p>A semaphore is a synchronization mechanism that controls access to shared resources. It maintains a
+                counter that represents the number of available resources.</p>
+            <ul>
+                <li><strong>Wait (P) Operation:</strong> Decrements the semaphore. If the value becomes negative, the
+                    process is blocked and added to the waiting queue.</li>
+                <li><strong>Signal (V) Operation:</strong> Increments the semaphore. If there are waiting processes, one
+                    is unblocked and allowed to enter the critical section.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
