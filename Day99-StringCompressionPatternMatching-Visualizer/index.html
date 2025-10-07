@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Compression & Pattern Matching Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>String Compression & Pattern Matching Visualizer</h1>
+            <p>Visualize RLE, KMP, and LZW algorithms in real-time</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="inputString">Input String:</label>
+                <input type="text" id="inputString" placeholder="Enter text to compress..." value="ABRACADABRA">
+            </div>
+            <div class="input-group">
+                <label for="pattern">Pattern (for KMP):</label>
+                <input type="text" id="pattern" placeholder="Enter pattern to search..." value="ABRA">
+            </div>
+            <button id="processBtn">Process</button>
+        </div>
+
+        <div class="algorithms">
+            <div class="algorithm-card" id="rle-card">
+                <h3>Run-Length Encoding (RLE)</h3>
+                <div class="visualization" id="rle-visualization">
+                    <div class="input-display" id="rle-input"></div>
+                    <div class="process-display" id="rle-process"></div>
+                    <div class="output-display" id="rle-output"></div>
+                </div>
+                <div class="stats">
+                    <span>Compression Ratio: <span id="rle-ratio">-</span></span>
+                    <span>Time: <span id="rle-time">-</span>ms</span>
+                </div>
+            </div>
+
+            <div class="algorithm-card" id="kmp-card">
+                <h3>Knuth-Morris-Pratt (KMP)</h3>
+                <div class="visualization" id="kmp-visualization">
+                    <div class="input-display" id="kmp-input"></div>
+                    <div class="process-display" id="kmp-process"></div>
+                    <div class="output-display" id="kmp-output"></div>
+                </div>
+                <div class="stats">
+                    <span>Pattern Found at: <span id="kmp-positions">-</span></span>
+                    <span>Time: <span id="kmp-time">-</span>ms</span>
+                </div>
+            </div>
+
+            <div class="algorithm-card" id="lzw-card">
+                <h3>Lempel-Ziv-Welch (LZW)</h3>
+                <div class="visualization" id="lzw-visualization">
+                    <div class="input-display" id="lzw-input"></div>
+                    <div class="process-display" id="lzw-process"></div>
+                    <div class="output-display" id="lzw-output"></div>
+                </div>
+                <div class="stats">
+                    <span>Compression Ratio: <span id="lzw-ratio">-</span></span>
+                    <span>Time: <span id="lzw-time">-</span>ms</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <h3>Algorithm Comparison</h3>
+            <div class="comparison-chart">
+                <div class="chart-bar" id="rle-bar">
+                    <span>RLE</span>
+                    <div class="bar"></div>
+                </div>
+                <div class="chart-bar" id="kmp-bar">
+                    <span>KMP</span>
+                    <div class="bar"></div>
+                </div>
+                <div class="chart-bar" id="lzw-bar">
+                    <span>LZW</span>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
