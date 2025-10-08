@@ -86,6 +86,24 @@ Day79 - stack-heap-visualizer - 17/09/25
 Day80 - superscalar-simulator - 18/09/25  
 Day81 - Buffer-pool-simulation - 19/09/25  
 Day82 - Firewall Packet Filter Visualizer - 20/09/25  
+Day83 - IoT-Simulator - 21/09/25  
+Day84 - Quantum-Visualizer - 22/09/25  
+Day85 - Segment-Fenwick-Tree-Visualizer - 23/09/25  
+Day86 - Expression-Evaluation-Simulator - 24/09/25  
+Day87 - ARP-NAT-Visualization-Tool - 25/09/25  
+Day88 - Thread-Scheduling-Visualizer - 26/09/25  
+Day89 - Cloud-Load-Balancer-Simulator - 27/09/25  
+Day90 - Network-Congestion-Visualization - 28/09/25  
+Day91 - ACID-Properties-Visualizer - 29/09/25  
+Day92 - Virtual-Memory-Address-Visualizer - 30/09/25  
+Day93 - Event-Driven-Architecture-Demo - 01/10/25  
+Day94 - C-and-C++-Pointer-Visualizer - 02/10/25  
+Day95 - Convex-Hull-Visualizer - 03/10/25  
+Day96 - Sharding-and-Replication-Demo - 04/10/25  
+Day97 - Microservices-Visualizer - 05/10/25  
+Day98 - Semaphore-Synchronization-Visualizer - 06/10/25  
+Day99 - String-Compression-and-Pattern-Matching-Visualizer - 07/10/25  
+Day100 - ChronoQuest-Time-Travel-Through-Tech - 08/10/25  
 
 
 
