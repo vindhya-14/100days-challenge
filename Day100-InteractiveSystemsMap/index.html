@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChronoQuest - Time Travel Through Tech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- Animated Background Particles -->
+    <div class="background-particles"></div>
+
+    <div class="app">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="container">
+                <h1 class="title">🕰️ ChronoQuest</h1>
+                <p class="subtitle">Travel through the eras of computing innovation</p>
+                <div class="era-indicator">
+                    <span id="current-era">1950s</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Timeline Navigation -->
+        <section class="timeline-nav">
+            <div class="timeline-container">
+                <div class="timeline-bar">
+                    <div id="timeline-progress"></div>
+                    <div class="era-marker active" data-era="1950s">1950s</div>
+                    <div class="era-marker" data-era="1960s">1960s</div>
+                    <div class="era-marker" data-era="1970s">1970s</div>
+                    <div class="era-marker" data-era="1980s">1980s</div>
+                    <div class="era-marker" data-era="1990s">1990s</div>
+                    <div class="era-marker" data-era="2000s">2000s</div>
+                    <div class="era-marker" data-era="2010s">2010s</div>
+                    <div class="era-marker" data-era="2020s">2020s</div>
+                    <div class="era-marker`" data-era="2030s">2030s</div>
+                    <div class="era-marker" data-era="2040s">2040s</div>
+                    <div class="era-marker" data-era="2050s">2050s</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- 1950s Section -->
+                <section class="era-section active" id="era-1950s">
+                    <div class="era-content">
+                        <h2 class="era-title">1950s: The Dawn of Computing</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="fortran">
+                                <span class="milestone-icon">🔮</span>
+                                <h3>FORTRAN: The First High-Level Language</h3>
+                                <p>Revolutionizing scientific computing with the first high-level programming language
+                                    that made complex calculations accessible.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="transistor">
+                                <span class="milestone-icon">⚡</span>
+                                <h3>Transistor Revolution</h3>
+                                <p>Bell Labs invents the transistor, replacing vacuum tubes and paving the way for
+                                    modern electronics.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="univac">
+                                <span class="milestone-icon">💾</span>
+                                <h3>UNIVAC I: First Commercial Computer</h3>
+                                <p>The world's first commercially produced electronic digital computer, marking the
+                                    beginning of the computer industry.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1960s Section -->
+                <section class="era-section" id="era-1960s">
+                    <div class="era-content">
+                        <h2 class="era-title">1960s: Mainframes & Networking</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="arpanet">
+                                <span class="milestone-icon">🌐</span>
+                                <h3>ARPANET: Internet's Predecessor</h3>
+                                <p>The first operational packet-switching network and the precursor to the global
+                                    Internet.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="ibm360">
+                                <span class="milestone-icon">🏢</span>
+                                <h3>IBM System/360</h3>
+                                <p>Revolutionary mainframe computer family that established compatibility across
+                                    different models.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="mouse">
+                                <span class="milestone-icon">🖱️</span>
+                                <h3>First Computer Mouse</h3>
+                                <p>Douglas Engelbart invents the mouse, revolutionizing human-computer interaction.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1970s Section -->
+                <section class="era-section" id="era-1970s">
+                    <div class="era-content">
+                        <h2 class="era-title">1970s: Personal Computing Begins</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="unix">
+                                <span class="milestone-icon">💻</span>
+                                <h3>The Birth of UNIX</h3>
+                                <p>The foundation of modern operating systems, born at Bell Labs and paving the way for
+                                    open-source revolution.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="c-language">
+                                <span class="milestone-icon">⚡</span>
+                                <h3>The C Programming Revolution</h3>
+                                <p>Dennis Ritchie creates a language that would become the backbone of operating systems
+                                    and applications.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="apple1">
+                                <span class="milestone-icon">🍎</span>
+                                <h3>Apple I Personal Computer</h3>
+                                <p>Steve Wozniak and Steve Jobs release the first Apple computer, starting the personal
+                                    computing revolution.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1980s Section -->
+                <section class="era-section" id="era-1980s">
+                    <div class="era-content">
+                        <h2 class="era-title">1980s: PC Revolution</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="ibmpc">
+                                <span class="milestone-icon">💼</span>
+                                <h3>IBM Personal Computer</h3>
+                                <p>The IBM PC sets the standard for business computing and establishes the PC
+                                    architecture.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="macintosh">
+                                <span class="milestone-icon">🖥️</span>
+                                <h3>Macintosh: Computing for All</h3>
+                                <p>Apple's revolutionary computer that brought graphical user interfaces to the
+                                    mainstream.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="www">
+                                <span class="milestone-icon">🕸️</span>
+                                <h3>World Wide Web Concept</h3>
+                                <p>Tim Berners-Lee proposes a global hypertext project at CERN, laying foundation for
+                                    the web.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1990s Section -->
+                <section class="era-section" id="era-1990s">
+                    <div class="era-content">
+                        <h2 class="era-title">1990s: Internet Explosion</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="web">
+                                <span class="milestone-icon">🌍</span>
+                                <h3>World Wide Web Launches</h3>
+                                <p>Tim Berners-Lee releases the first web browser and server, revolutionizing
+                                    information sharing.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="windows95">
+                                <span class="milestone-icon">🪟</span>
+                                <h3>Windows 95 Revolution</h3>
+                                <p>Microsoft's iconic operating system brings Start menu and taskbar to millions of
+                                    users worldwide.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="google">
+                                <span class="milestone-icon">🔍</span>
+                                <h3>Google Search Engine</h3>
+                                <p>Larry Page and Sergey Brin create a revolutionary search algorithm in their Stanford
+                                    dorm.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2000s Section -->
+                <section class="era-section" id="era-2000s">
+                    <div class="era-content">
+                        <h2 class="era-title">2000s: Mobile & Social Era</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="iphone">
+                                <span class="milestone-icon">📱</span>
+                                <h3>iPhone Revolution</h3>
+                                <p>Apple reinvents the phone with multi-touch interface and mobile internet, creating
+                                    the smartphone era.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="facebook">
+                                <span class="milestone-icon">👥</span>
+                                <h3>Social Media Boom</h3>
+                                <p>Facebook and other platforms connect billions, transforming communication and
+                                    society.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="cloud">
+                                <span class="milestone-icon">☁️</span>
+                                <h3>Cloud Computing</h3>
+                                <p>AWS and cloud services revolutionize how businesses deploy and scale applications.
+                                </p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2010s Section -->
+                <section class="era-section" id="era-2010s">
+                    <div class="era-content">
+                        <h2 class="era-title">2010s: AI & Big Data</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="deeplearning">
+                                <span class="milestone-icon">🧠</span>
+                                <h3>Deep Learning Breakthrough</h3>
+                                <p>Neural networks achieve human-level performance in image recognition and other tasks.
+                                </p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="blockchain">
+                                <span class="milestone-icon">⛓️</span>
+                                <h3>Blockchain & Bitcoin</h3>
+                                <p>Cryptocurrencies and decentralized systems challenge traditional financial models.
+                                </p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="iot">
+                                <span class="milestone-icon">📶</span>
+                                <h3>Internet of Things</h3>
+                                <p>Billions of connected devices create smart homes, cities, and industrial systems.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2020s Section -->
+                <section class="era-section" id="era-2020s">
+                    <div class="era-content">
+                        <h2 class="era-title">2020s: AI Renaissance</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="gpt">
+                                <span class="milestone-icon">🤖</span>
+                                <h3>The GPT Revolution</h3>
+                                <p>Large language models demonstrate unprecedented understanding of human language and
+                                    reasoning.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="metaverse">
+                                <span class="milestone-icon">👓</span>
+                                <h3>Metaverse & Web3</h3>
+                                <p>Virtual worlds and decentralized internet concepts gain mainstream attention.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="quantum">
+                                <span class="milestone-icon">🌌</span>
+                                <h3>Quantum Supremacy</h3>
+                                <p>Quantum computers demonstrate capabilities beyond classical computing limits.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2030s Section -->
+                <section class="era-section" id="era-2030s">
+                    <div class="era-content">
+                        <h2 class="era-title">2030s: AI Integration</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="agi">
+                                <span class="milestone-icon">🌟</span>
+                                <h3>Artificial General Intelligence</h3>
+                                <p>AI systems demonstrate human-like reasoning and problem-solving across multiple
+                                    domains.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="brain">
+                                <span class="milestone-icon">🧩</span>
+                                <h3>Brain-Computer Interfaces</h3>
+                                <p>Direct neural interfaces enable new forms of communication and control.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="quantum-net">
+                                <span class="milestone-icon">🔒</span>
+                                <h3>Quantum Internet</h3>
+                                <p>Secure quantum networks enable unhackable global communication systems.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2040s Section -->
+                <section class="era-section" id="era-2040s">
+                    <div class="era-content">
+                        <h2 class="era-title">2040s: Post-Silicon Era</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="quantum-sup">
+                                <span class="milestone-icon">⚛️</span>
+                                <h3>Quantum Supremacy Practical</h3>
+                                <p>Quantum computers solve real-world optimization and simulation problems at scale.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="dna">
+                                <span class="milestone-icon">🧬</span>
+                                <h3>DNA Data Storage</h3>
+                                <p>Biological storage systems offer million-year data preservation at massive densities.
+                                </p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="ai-economy">
+                                <span class="milestone-icon">🏛️</span>
+                                <h3>AI-Driven Economy</h3>
+                                <p>Autonomous AI systems manage significant portions of global economic activity.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2050s Section -->
+                <section class="era-section" id="era-2050s">
+                    <div class="era-content">
+                        <h2 class="era-title">2050s: The Singularity Era</h2>
+                        <div class="milestones-grid">
+                            <div class="milestone-card" data-milestone="singularity">
+                                <span class="milestone-icon">🌀</span>
+                                <h3>Technological Singularity</h3>
+                                <p>AI systems recursively self-improve, leading to exponential technological growth.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="mind">
+                                <span class="milestone-icon">💫</span>
+                                <h3>Mind Uploading</h3>
+                                <p>Consciousness preservation and transfer become possible through advanced scanning.
+                                </p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                            <div class="milestone-card" data-milestone="interstellar">
+                                <span class="milestone-icon">🚀</span>
+                                <h3>Interstellar Computing</h3>
+                                <p>Humanity begins deploying computational infrastructure beyond our solar system.</p>
+                                <button class="unlock-btn">Unlock Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Progress Section -->
+        <footer class="progress-section">
+            <div class="container">
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="unlocked-count">0</span>
+                        <span class="stat-label">Unlocked Milestones</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="era-count">1</span>
+                        <span class="stat-label">Eras Visited</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="current-era-display">1950s</span>
+                        <span class="stat-label">Current Era</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Story Modal -->
+        <div id="story-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div id="story-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
